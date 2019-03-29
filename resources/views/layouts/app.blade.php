@@ -17,7 +17,14 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{asset("css/font-awesome.min.css")}}"  rel="stylesheet"/>
+    <link href="{{asset("css/bootstrap.min.css")}}"     rel="stylesheet"/>
+    <link href="{{asset("css/style.css")}}"             rel="stylesheet"/>
+    <link href="{{asset("images/lo.png")}}"             rel="icon" type="image/png"/>
+    <link href="{{asset("css/normalize.css")}}"  rel="stylesheet"/>
+    <link href="{{asset("dist/assets/owl.carousel.min.css")}}"     rel="stylesheet"/>
+    <link href="{{asset("dist/assets/owl.theme.default.min.css")}}"             rel="stylesheet"/>
+    <link href="{{asset("dist/assets/owl.theme.green.min.css")}}"             rel="stylesheet" />
 </head>
 <body>
     <div id="app">

@@ -15,14 +15,36 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/index.html', function () {
+    return view('welcome');
+});
+
+Route::get('/rooms.html', function () {
+    return view('rooms');
+});
+
+Route::get('/services.html', function () {
+    return view('services');
+});
+
+Route::get('/booking.html', function () {
+    return view('booking');
+});
+
+Route::get('/contact.html', function () {
+    return view('contact');
+});
+
+Route::get('/login.html', function () {
+    return view('auth/login');
+});
+
+Route::get('/sign-up.html', function () {
+    return view('auth/register');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
