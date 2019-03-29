@@ -104,26 +104,16 @@
           <h3>Send us your inquires and feedbacks!</h3>
         </div>
         <div class="contact-form-holder">
-          <form id="contactus-form" method="POST">
+
+
+          <form id="contactus-form" action="addfeedback" method="POST">
+            {{csrf_field()}}
             <div class="row">
+
               <div class="col-xs-12">
-                <div class="input-group input-group-lg">
-                  <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user"></i></span>
-                  <input type="text" class="form-control" name="contact-name" placeholder="Name" aria-describedby="basic-addon1" required="required">
-                </div>
+
               </div>
-              <div class="col-xs-12">
-                <div class="input-group input-group-lg">
-                  <span class="input-group-addon" id="basic-addon1">@</span>
-                  <input type="text" class="form-control" name="contact-email" placeholder="Email" aria-describedby="basic-addon1" required="required">
-                </div>
-              </div>
-              <div class="col-sm-6 col-xs-12">
-                <div class="input-group input-group-lg">
-                  <span class="input-group-addon" id="basic-addon1"><i class="fa fa-phone"></i></span>
-                  <input type="text" class="form-control" name="contact-phone" placeholder="Phone Number" aria-describedby="basic-addon1" required="required">
-                </div>
-              </div>
+
               <div class="col-sm-6 col-xs-12">
                 <div class="input-group input-group-lg">
                   <span class="input-group-addon" id="basic-addon1">?</span>
@@ -142,6 +132,7 @@
               </div>
             </div>
           </form>
+
         </div>
       </div>
     </section>
@@ -155,9 +146,9 @@
             <div class="footer-contact">
               <h3>Contact Us</h3>
               <p>
-                Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. <span>Vivamus magna justo</span>, 
+                Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. <span>Vivamus magna justo</span>,
                 lacinia eget consectetur sed, convallis at tellus. <br><br>Nulla porttitor accumsan tincidunt.
-                Vivamus tortor eget <span>felis porttitor</span> volutpat. Vestibulum ante ipsum primis in 
+                Vivamus tortor eget <span>felis porttitor</span> volutpat. Vestibulum ante ipsum primis in
                 faucibus orci luctus et ultrices posuere cubilia Curae.
               </p>
               <button>Contact Us</button>

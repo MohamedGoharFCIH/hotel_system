@@ -60,41 +60,28 @@
               <table class="feedbacks-table">
                   <tr>
                     <th>Feedback ID</th>
-                    <th>Feedback Owner</th>
+                    <th>Feedback OwnerID</th>
                     <th>Feedback Subject</th>
                     <th>Feedback Text</th>
                   </tr>
+                  @if($feedback){
+                  @foreach($feedback as $f)
                   <tr>
-                    <td>1</td>
-                    <td>Mostafa Waheed</td>
-                    <td>Fine</td>
-                    <td>N/A</td>
+                    <td>{{$f->id}}</td>
+                    <td>{{$f->user_id}}</td>
+                    <td>{{$f->subject}}</td>
+                    <td> <a href="{{"/readMessage/".$f->id}}"> read message </a></td>
                   </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Salma Hassaan</td>
-                    <td>Bad</td>
-                    <td>N/A</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Mostafa Moaaz</td>
-                    <td>Wonderful</td>
-                    <td>N/A</td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>Shehab Khaled</td>
-                    <td>Not Good</td>
-                    <td>N/A</td>
-                  </tr>
+                @endforeach
+              }
+              @endif
                 </table>
             </div>
           </div>
         </section>
       </div>
     </div>
-    
+
 
 
     <script src="{{URL::asset('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')}}"></script>

@@ -15,6 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Auth::routes();
+
+
+Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/index.html', function () {
     return view('welcome');
 });
@@ -43,8 +49,11 @@ Route::get('/sign-up.html', function () {
     return view('auth/register');
 });
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// start feedbacks part
 
+Route::get('addfeedback', 'manage@AddFeedback');
+Route::post('addfeedback', 'manage@AddFeedback');
+Route::get('dashbordfeedbacks', 'manage@dashbordfeedbacks');
 
+// end feedbacks part

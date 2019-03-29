@@ -19,6 +19,8 @@ class CreateFeedback extends Migration
             $table->integer('user_id');
             $table->date('message_date');
             $table->text('message');
+            $table->string('subject');
+
         });
     }
 
