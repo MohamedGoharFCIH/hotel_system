@@ -54,27 +54,36 @@
     <div id="content-wrapper">
     
       <div class="container-fluid">
-        <div class="text-center" style="margin: 50px;"><h1>View all feedbacks data</h1></div>
+        <div class="text-center" style="margin: 50px;"><h1>Viwe all Users</h1></div>
         <section class="feedbacks">
           <div class="container">
             <div class="feedbacks-data">
+            
               <table class="feedbacks-table">
                   <tr>
-                    <th>Feedback ID</th>
-                    <th>Feedback OwnerID</th>
-                    <th>Feedback Subject</th>
-                    <th>Feedback Text</th>
+                    <th>User ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Address </th>
+                    <th>Phone </th>
+                    <th>Created at </th>
+                    <th>Updated at</th>
+                    
                   </tr>
-                  
-                  @foreach($feedbacks as $f)
+                   @foreach($user as $us)
                   <tr>
-                    <td>{{$f->id}}</td>
-                    <td>{{$f->user_id}}</td>
-                    <td>{{$f->subject}}</td>
-                    <td> <a href="{{"/readMessage/".$f->id}}"> read message </a></td>
+                    <td>{{$us->id}}</td>
+                    <td>{{$us->name}}</td>
+                    <td>{{$us->email}}</td>
+                    <td>{{$us->address}}</td>
+                    <td>{{$us->phone_num}}</td>
+                    <td>{{$us->created_at}}</td>
+                    <td>{{$us->updated_at}}</td>
+
                   </tr>
                 @endforeach
               
+                 
               
                 </table>
             </div>

@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,39 +28,42 @@ Route::get('admin/routes', 'HomeController@admin')->middleware('admin');
 //end admin middleware
 
 
-Route::get('/index.html', function () {
+Route::get('/index', function () {
     return view('welcome');
 });
 
-Route::get('/rooms.html', function () {
+Route::get('/rooms', function () {
     return view('rooms');
 });
 
-Route::get('/services.html', function () {
+Route::get('/services', function () {
     return view('services');
 });
 
-Route::get('/booking.html', function () {
+Route::get('/booking', function () {
     return view('booking');
 });
 
-Route::get('/contact.html', function () {
+Route::get('/contact', function () {
     return view('contact');
 });
+
+
 
 Route::get('/login.html', function () {
     return view('auth/login');
 });
 
-Route::get('/sign-up.html', function () {
+Route::get('/sign-up', function () {
     return view('auth/register');
 });
 
 
-// start feedbacks part
+// list usr
+Route::get('/listusers', 'manage@listusers');
 
+// start feedbacks part
 Route::get('addfeedback', 'manage@AddFeedback');
 Route::post('addfeedback', 'manage@AddFeedback');
 Route::get('dashbordfeedbacks', 'manage@dashbordfeedbacks');
-
 // end feedbacks part

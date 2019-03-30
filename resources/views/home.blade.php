@@ -1,8 +1,5 @@
 @extends('layouts.app')
-
 @section('content')
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +11,6 @@
     <link href="{{asset("css/style.css")}}"             rel="stylesheet"/>
     <link href="{{asset("images/lo.png")}}"             rel="icon" type="image/png"/>
 </head>
-
 <body>
 
 
@@ -23,19 +19,15 @@
 
 <div class="row">
 
-  <div class="col-md-8 col-md-offset-2">
+  <!-- <div class="col-md-8 col-md-offset-2"> -->
 
-    <div class="panel panel-default">
+          <div class="panel panel-default">
+                <div class="panel-heading">Dashboard</div>
 
-      <div class="panel-heading">Dashboard</div>
-
-          <?php if(auth()->user()->type == 1){?>
-
-              <div class="panel-body">
-
+                        <?php if(auth()->user()->type == 1){?>
+                <div class="panel-body">
                 <a href="{{url('admin/routes')}}">Admin</a>
-
-              </div>
+            </div>
 
 {{--start nav--}}
 
@@ -69,18 +61,16 @@
                         <span class="icon-bar"></span>
                     </button>
                     <div class="navbar-header">
-                        <a href="index.html">
+                        <a href="index">
                             <img src="images/logo.jpg" width="80" height="80">
                         </a>
                     </div>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-
-                        <li><a href="">Users</a></li>
-                        <li><a href="">Feedbacks</a></li>
-
+                   <div class="panel-heading btn-primary" style="margin-left: 320px;padding:20px;background:white;color: black;"></div>
+                    <a href="/listusers">Show Users</a>
+                    <a href="/dashbordfeedbacks">List Feedbacks</a>
+        
                     </ul>
                 </div>
             </div>
@@ -125,20 +115,20 @@
                         <span class="icon-bar"></span>
                     </button>
                     <div class="navbar-header">
-                        <a href="index.html">
+                        <a href="index">
                             <img src="images/logo.jpg" width="80" height="80">
                         </a>
                     </div>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-
-                        <li><a href="">Users</a></li>
-                        <li><a href="/contact.html">Feedbacks</a></li>
-
-                    </ul>
-                </div>
+                       
+                    
+                    <div class="panel-heading btn-primary" style="margin-left: 320px;padding:20px;background:white;color: black;"></div>
+                    <a href="/rooms">Rooms</a>
+                    <a href="contact">Feedbacks</a>
+        
+                    
+                
             </div>
         </nav>
 
@@ -153,7 +143,57 @@
     </div>
 
 </div>
-
+<footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4 col-xs-12">
+            <div class="footer-contact">
+              <h3>Contact Us</h3>
+              <p>
+                Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. <span>Vivamus magna justo</span>, 
+                lacinia eget consectetur sed, convallis at tellus. <br><br>Nulla porttitor accumsan tincidunt.
+                Vivamus tortor eget <span>felis porttitor</span> volutpat. Vestibulum ante ipsum primis in 
+                faucibus orci luctus et ultrices posuere cubilia Curae.
+              </p>
+              <button>Contact Us</button>
+            </div>
+          </div>
+          <div class="col-sm-4 col-xs-12">
+            <div class="footer-office">
+              <h3>Manger Office Hours</h3>
+              <h4>Openning Days:</h4>
+              <p>Monday – Friday : 9am to 20 pm</p>
+              <p>Saturday : 9am to 17 pm</p>
+              <h4>Vacations :</h4>
+              <p>All Sunday Days</p>
+              <p>All Official Holidays</p>
+            </div>
+          </div>
+          <div class="col-sm-4 col-xs-12">
+            <div class="subscribe">
+              <h3>Subscribe</h3>
+              <p>
+                Leave your mail and we'll talk to you soon.
+              </p>
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Enter Your Mail">
+                <span class="input-group-btn">
+                  <button class="btn" type="button">Submit</button>
+                </span>
+              </div>
+              <div class="social-icons">
+                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                  <i class="fa fa-google-plus" aria-hidden="true"></i>
+                  <i class="fa fa-rss" aria-hidden="true"></i>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
 
 </body>
 @endsection
+</html>
