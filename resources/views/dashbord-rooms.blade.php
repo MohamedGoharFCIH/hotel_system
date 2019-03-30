@@ -35,12 +35,12 @@
       <div class="main-menu">
         <ul class='main-menu'>
         <li class="link-active">
-          <a href="dashbord-rooms.html">
+          <a href="dashbord-rooms">
           <span class='glyphicon glyphicon-home'></span> Rooms
           </a>
         </li>
         <li>
-          <a href="dashbord-feedbacks.html">
+          <a href="dashbord-feedbacks">
           <span class='glyphicon glyphicon-comment'></span> Feedbacks
           </a>
         </li>

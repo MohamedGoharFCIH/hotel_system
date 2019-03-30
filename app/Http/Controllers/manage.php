@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Feedback;
+use App\User;
 use Auth;
 
 class manage extends Controller
@@ -29,7 +30,16 @@ class manage extends Controller
 
         public function dashbordfeedbacks() {
           $feedbacks = Feedback::all();
-          $feedback = Array('feedbacks'=>$feedbacks);
-          return view('dashbord-feedbacks', $feedback);
+          return view('dashbord-feedbacks', compact('feedbacks'));
         }
+
+        public function listusers()
+        {
+          $user = User::select('*')->where('type', '=', 0)->get();
+         
+          return view('listusers', compact('user'));
+
+        }
+
+
 }

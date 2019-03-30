@@ -25,7 +25,7 @@
           </div>
           <div class="col-sm-6 col-xs-12">
             <div class="top-info">
-              <p><a href="myaccount.html">Customer Name</a> | <a href="#">Log Out</a></p>
+              <p><a href="myaccount">Customer Name</a> | <a href="#">Log Out</a></p>
             </div>
           </div>
         </div>
@@ -45,7 +45,7 @@
               <span class="icon-bar"></span>
             </button>
             <div class="navbar-header">
-              <a href="index.html">
+              <a href="index">
                 <img src="images/logo.jpg" width="80" height="80">
               </a>
             </div>
@@ -54,11 +54,11 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
               <li><a href="#">HOME</a></li>
-              <li><a href="rooms.html">ROOMS</a></li>
-              <li><a href="services.html">SERVICES</a></li>
-              <li><a href="booking.html">BOOKING</a></li>
-              <li><a href="contact.html">CONTACT US</a></li>
-              <li><a href="myaccount.html">MY ACCOUNT</a></li>
+              <li><a href="rooms">ROOMS</a></li>
+              <li><a href="services">SERVICES</a></li>
+              <li><a href="booking">BOOKING</a></li>
+              <li><a href="contact">CONTACT US</a></li>
+              <li><a href="myaccount">MY ACCOUNT</a></li>
             </ul>
           </div>
         </div>

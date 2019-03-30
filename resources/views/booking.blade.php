@@ -25,7 +25,7 @@
           </div>
           <div class="col-sm-6 col-xs-12">
             <div class="top-info">
-              <p><a href="login.html">Log In</a> | <a href="sign-up.html">Sign Up</a></p>
+              <p><a href="login">Log In</a> | <a href="sign-up">Sign Up</a></p>
             </div>
           </div>
         </div>
@@ -45,7 +45,7 @@
               <span class="icon-bar"></span>
             </button>
             <div class="navbar-header">
-              <a href="index.html">
+              <a href="index">
                 <img src="images/logo.jpg" width="80" height="80">
               </a>
             </div>
@@ -53,11 +53,11 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="rooms.html">ROOMS</a></li>
-              <li><a href="services.html">SERVICES</a></li>
+              <li><a href="index">Home</a></li>
+              <li><a href="rooms">ROOMS</a></li>
+              <li><a href="services">SERVICES</a></li>
               <li class="active"><a href="#">BOOKING</a></li>
-              <li><a href="contact.html">CONTACT US</a></li>
+              <li><a href="contact">CONTACT US</a></li>
             </ul>
           </div>
         </div>
@@ -197,11 +197,11 @@
           <div class="col-sm-6 col-xs-12">
             <div class="footer-links">
               <ul class="list-unstyled">
-                <li><a href="index.html">HOME</a></li>
-                <li><a href="rooms.html">ROOMS</a></li>
-                <li><a href="services.html">SERVICES</a></li>
-                <li><a href="booking.html">BOOKING</a></li>
-                <li><a href="contact.html">CONTACT US</a></li>
+                <li><a href="index">HOME</a></li>
+                <li><a href="rooms">ROOMS</a></li>
+                <li><a href="services">SERVICES</a></li>
+                <li><a href="booking">BOOKING</a></li>
+                <li><a href="contact">CONTACT US</a></li>
               </ul>
             </div>
           </div>
