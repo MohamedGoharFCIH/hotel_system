@@ -18,12 +18,15 @@ class manage extends Controller
             $feedback->user_id = Auth::User()->id;
             $feedback->message_date = date('Y-m-d H:i:s');
             $feedback->save();
-            return redirect('dashbordfeedbacks');
+            return redirect('/home');
+
+
           }
           return view('contact');
 
 
         }
+
         public function dashbordfeedbacks() {
           $feedbacks = Feedback::all();
           $feedback = Array('feedbacks'=>$feedbacks);

@@ -8,7 +8,7 @@
 
       <div class="panel panel-default">
 
-        <div class="panel-heading btn-primary">WELCOME TO ADMIN ROUTE</div>
+        <div class="panel-heading btn-primary" style="margin-left: 320px;padding:20px;background:white;color: cornflowerblue;">WELCOME TO ADMIN ROUTE</div>
 
       </div>
 
