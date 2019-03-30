@@ -1,90 +1,69 @@
 @extends('layouts.app')
 
 @section('content')
-<html>
-  <head>
-    <meta charset="UTF-8"/>
-    <title>Agaza - Login</title>
-    <link href="{{asset("css/font-awesome.min.css")}}"  rel="stylesheet"/>
-    <link href="{{asset("css/bootstrap.min.css")}}"     rel="stylesheet"/>
-    <link href="{{asset("css/style.css")}}"             rel="stylesheet"/>
-    <link href="{{asset("images/lo.png")}}"             rel="icon" type="image/png"/>
-    <link href="{{asset("css/normalize.css")}}"  rel="stylesheet"/>
-    <link href="{{asset("dist/assets/owl.carousel.min.css")}}"     rel="stylesheet"/>
-    <link href="{{asset("dist/assets/owl.theme.default.min.css")}}"             rel="stylesheet"/>
-    <link href="{{asset("dist/assets/owl.theme.green.min.css")}}"             rel="stylesheet" />
-  </head>
-  <body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">{{ __('Login') }}</div>
 
-    <!--start of login page body-->
-    <section class="login-body">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-6 col-xs-12">
-            <div class="login-info">
-              <h1>Welcome To Agaza</h1>
-              <h2>Login Now</h2>
-              <P>We are wait for you to serve you with love <i class="fa fa-heart"></i></P>
-                    <form class="login-form" method="POST" action="{{ route('login') }}">
-                        @csrf
+                    <div class="card-body">
+                        <form method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
+                            @csrf
 
-                        <div class="form-group row">
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon" id="sizing-addon2"><i class="fa fa-user"></i></span>
-                                    <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon2" required="required" name="login-user" autofocus>
+                            <div class="form-group row">
+                                <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+
+                                    @if ($errors->has('email'))
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                    @endif
                                 </div>
                             </div>
 
-                        <div class="form-group">
-                            <div class="input-group">
-                                <span class="input-group-addon" id="sizing-addon2"><i class="fa fa-lock"></i></span>
-                                <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="Password" aria-describedby="sizing-addon2" required="required" name="password">
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
+                            <div class="form-group row">
+                                <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+
+                                    @if ($errors->has('password'))
+                                        <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
-                                @endif
+                                    @endif
+                                </div>
                             </div>
-                        </div>
-                        <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                        <label class="form-check-label" for="remember">
-                            {{ __('Remember Me') }}
-                        </label>
-                        <input type="submit" value="Login" class="btn">
-                        @if (Route::has('password.request'))
+
+                            <div class="form-group row">
+                                <div class="col-md-6 offset-md-4">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Remember Me') }}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row mb-0">
+                                <div class="col-md-8 offset-md-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        {{ __('Login') }}
+                                    </button>
+
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
-                        @endif
-                    </form>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-          </div>
-          <div class="col-md-6 hidden-sm hidden-xs" style="padding-left: 0px;">
-            <div class="login-img text-center hidden-sm hidden-xs">
-              <img src="images/logo.jpg" class="center-block hidden-sm hidden-xs">
-              <div class="login-img-data">
-                  <i class="fa fa-heart"></i>
-                  <p>Work with love</p><br>
-                  <i class="fa fa-users"></i>
-                  <p>A very great community</p><br>
-                  <i class="fa fa-commenting"></i>
-                  <p>Easy to contact with us</p><br>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
-    </section>
-    <!--end of login page body-->
-
-    <script src="{{URL::asset("js/jquery-1.12.1.min.js")}}"></script>
-    <script src="{{URL::asset("js/jquery.nicescroll.js")}}"></script>
-    <script src="{{URL::asset("js/wow.min.js")}}"></script>
-    <script src="{{URL::asset("js/bootstrap.min.js")}}"></script>
-    <script src="{{URL::asset("dist/owl.carousel.min.js")}}></script>
-    <script src="{{URL::asset("js/main.js")}}"></script>
-  </body>
-</html>
+    </div>
 @endsection

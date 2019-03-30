@@ -135,12 +135,12 @@
         <h4>DISCOVER US</h4>
         <h2>LUXARY ACCOMMODATIONS</h2>
         <p>
-          Get your day off to the best possible start with our extraordinarily tasty buffet breakfast, 
-          served in our quiet courtyard as you bask in the pleasant early morning sunshine, or in the 
-          comfort of our elegant Wine Bar. Sed ut perspiciatis unde omnis iste natus error sit voluptatem 
-          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis 
-          et quasi architecto beatae vitae dicta sunt explicabo.Sed ut perspiciatis unde omnis iste natus 
-          error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab 
+          Get your day off to the best possible start with our extraordinarily tasty buffet breakfast,
+          served in our quiet courtyard as you bask in the pleasant early morning sunshine, or in the
+          comfort of our elegant Wine Bar. Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis
+          et quasi architecto beatae vitae dicta sunt explicabo.Sed ut perspiciatis unde omnis iste natus
+          error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab
           illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
         </p>
       </div>
@@ -207,17 +207,17 @@
             <div class="why-data">
               <h2>Why Agaza?!</h2>
               <p>
-                  Hotel business is not just a business, it is a lifestyle because if you want to 
-                  create strong and modern hotel company, you must live in this world. It is a matter 
-                  of perfect reputation, perfect personnel, unique services, and, of course, your 
+                  Hotel business is not just a business, it is a lifestyle because if you want to
+                  create strong and modern hotel company, you must live in this world. It is a matter
+                  of perfect reputation, perfect personnel, unique services, and, of course, your
                   desire to be the first and the best among the rivals.
               </p>
               <br>
               <P>
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum 
-                  has been the industry's standard dummy text ever since the 1500s, when an unknown printer 
-                  took a galley of type and scrambled it to make a type specimen book. It has survived not 
-                  only five centuries, but also the leap into electronic typesetting, remaining essentially 
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                  has been the industry's standard dummy text ever since the 1500s, when an unknown printer
+                  took a galley of type and scrambled it to make a type specimen book. It has survived not
+                  only five centuries, but also the leap into electronic typesetting, remaining essentially
                   unchanged.
               </P>
               <button>SEE MORE</button>
@@ -290,9 +290,9 @@
             <div class="footer-contact">
               <h3>Contact Us</h3>
               <p>
-                Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. <span>Vivamus magna justo</span>, 
+                Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. <span>Vivamus magna justo</span>,
                 lacinia eget consectetur sed, convallis at tellus. <br><br>Nulla porttitor accumsan tincidunt.
-                Vivamus tortor eget <span>felis porttitor</span> volutpat. Vestibulum ante ipsum primis in 
+                Vivamus tortor eget <span>felis porttitor</span> volutpat. Vestibulum ante ipsum primis in
                 faucibus orci luctus et ultrices posuere cubilia Curae.
               </p>
               <button>Contact Us</button>

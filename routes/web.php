@@ -21,6 +21,14 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+// start admin middleware
+
+Route::get('admin/routes', 'HomeController@admin')->middleware('admin');
+
+
+//end admin middleware
+
+
 Route::get('/index.html', function () {
     return view('welcome');
 });

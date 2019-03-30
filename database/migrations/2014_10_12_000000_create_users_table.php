@@ -23,6 +23,8 @@ class CreateUsersTable extends Migration
             $table->timestamps();
             $table->integer('phone_num');
             $table->text('address');
+            // type is integer  1 => admin other user
+            $table->integer('type')->default('0');
 
         });
     }
