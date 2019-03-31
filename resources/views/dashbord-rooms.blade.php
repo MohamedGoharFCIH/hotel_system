@@ -35,12 +35,13 @@
       <div class="main-menu">
         <ul class='main-menu'>
         <li class="link-active">
-          <a href="dashbord-rooms">
+
+          <a href="roomsadmin">
           <span class='glyphicon glyphicon-home'></span> Rooms
           </a>
         </li>
         <li>
-          <a href="dashbord-feedbacks">
+          <a href="feedbacksadmin">
           <span class='glyphicon glyphicon-comment'></span> Feedbacks
           </a>
         </li>
@@ -58,7 +59,7 @@
           <h3>Watch all rooms and you have all rights to do anything</h3>
         </div>
         <div class="row">
-            <div class="col-md-3 col-xs-12">
+            <div class="col-md-6 col-xs-12">
               <div class="rooms-buttons">
                 <button>1</button>
                 <button>2</button>
@@ -67,7 +68,7 @@
                 <button>5</button>
               </div>
             </div>
-            <div class="col-md-3 col-xs-12">
+            <div class="col-md-6 col-xs-12">
               <div class="rooms-buttons">
                 <button>1</button>
                 <button>2</button>
@@ -76,7 +77,7 @@
                 <button>5</button>
               </div>
             </div>
-            <div class="col-md-3 col-xs-12">
+            <div class="col-md-6 col-xs-12">
               <div class="rooms-buttons">
                 <button>1</button>
                 <button>2</button>
@@ -85,45 +86,7 @@
                 <button>5</button>
               </div>
             </div>
-            <div class="col-md-3 col-xs-12">
-              <div class="rooms-buttons">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>4</button>
-                <button>5</button>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-3 col-xs-12">
-              <div class="rooms-buttons">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>4</button>
-                <button>5</button>
-              </div>
-            </div>
-            <div class="col-md-3 col-xs-12">
-              <div class="rooms-buttons">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>4</button>
-                <button>5</button>
-              </div>
-            </div>
-            <div class="col-md-3 col-xs-12">
-              <div class="rooms-buttons">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>4</button>
-                <button>5</button>
-              </div>
-            </div>
-            <div class="col-md-3 col-xs-12">
+            <div class="col-md-6 col-xs-12">
               <div class="rooms-buttons">
                 <button>1</button>
                 <button>2</button>
@@ -134,7 +97,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-md-3 col-xs-12">
+            <div class="col-md-6 col-xs-12">
               <div class="rooms-buttons">
                 <button>1</button>
                 <button>2</button>
@@ -143,7 +106,7 @@
                 <button>5</button>
               </div>
             </div>
-            <div class="col-md-3 col-xs-12">
+            <div class="col-md-6 col-xs-12">
               <div class="rooms-buttons">
                 <button>1</button>
                 <button>2</button>
@@ -152,7 +115,7 @@
                 <button>5</button>
               </div>
             </div>
-            <div class="col-md-3 col-xs-12">
+            <div class="col-md-6 col-xs-12">
               <div class="rooms-buttons">
                 <button>1</button>
                 <button>2</button>
@@ -161,7 +124,7 @@
                 <button>5</button>
               </div>
             </div>
-            <div class="col-md-3 col-xs-12">
+            <div class="col-md-6 col-xs-12">
               <div class="rooms-buttons">
                 <button>1</button>
                 <button>2</button>
@@ -172,7 +135,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-md-3 col-xs-12">
+            <div class="col-md-6 col-xs-12">
               <div class="rooms-buttons">
                 <button>1</button>
                 <button>2</button>
@@ -181,7 +144,7 @@
                 <button>5</button>
               </div>
             </div>
-            <div class="col-md-3 col-xs-12">
+            <div class="col-md-6 col-xs-12">
               <div class="rooms-buttons">
                 <button>1</button>
                 <button>2</button>
@@ -190,7 +153,7 @@
                 <button>5</button>
               </div>
             </div>
-            <div class="col-md-3 col-xs-12">
+            <div class="col-md-6 col-xs-12">
               <div class="rooms-buttons">
                 <button>1</button>
                 <button>2</button>
@@ -199,7 +162,45 @@
                 <button>5</button>
               </div>
             </div>
-            <div class="col-md-3 col-xs-12">
+            <div class="col-md-6 col-xs-12">
+              <div class="rooms-buttons">
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>4</button>
+                <button>5</button>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 col-xs-12">
+              <div class="rooms-buttons">
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>4</button>
+                <button>5</button>
+              </div>
+            </div>
+            <div class="col-md-6 col-xs-12">
+              <div class="rooms-buttons">
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>4</button>
+                <button>5</button>
+              </div>
+            </div>
+            <div class="col-md-6 col-xs-12">
+              <div class="rooms-buttons">
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>4</button>
+                <button>5</button>
+              </div>
+            </div>
+            <div class="col-md-6 col-xs-12">
               <div class="rooms-buttons">
                 <button>1</button>
                 <button>2</button>

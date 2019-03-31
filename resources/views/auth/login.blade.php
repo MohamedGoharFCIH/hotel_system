@@ -2,7 +2,7 @@
     <html>
     <head>
         <meta charset="UTF-8"/>
-        <title>Agaza - Sign Up</title>
+        <title>Agaza - Sign In</title>
         <link href="{{asset("css/font-awesome.min.css")}}"  rel="stylesheet"/>
         <link href="{{asset("css/bootstrap.min.css")}}"     rel="stylesheet"/>
         <link href="{{asset("css/style.css")}}"             rel="stylesheet"/>

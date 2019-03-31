@@ -21,13 +21,14 @@
 
   <!-- <div class="col-md-8 col-md-offset-2"> -->
 
-          <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
 
-                        <?php if(auth()->user()->type == 1){?>
-                <div class="panel-body">
-                <a href="{{url('admin/routes')}}">Admin</a>
-            </div>
+          @if( Auth::user()->type==1  )
+
+              <div class="panel-body">
+
+               <a href="/admin">Admin</a>
+
+              </div>
 
 {{--start nav--}}
 
@@ -67,10 +68,13 @@
                     </div>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
-                   <div class="panel-heading btn-primary" style="margin-left: 320px;padding:20px;background:white;color: black;"></div>
-                    <a href="/listusers">Show Users</a>
-                    <a href="/dashbordfeedbacks">List Feedbacks</a>
-        
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li><a href="/feedbacksadmin">Feedbacks</a></li>
+                        <li><a href="/roomsadmin">Rooms</a></li>
+
                     </ul>
                 </div>
             </div>
@@ -82,7 +86,9 @@
 
         {{--// end nav--}}
 
-            <?php } else echo  '
+            
+           @else  
+
 
 
 
@@ -134,7 +140,8 @@
 
 
 
-';?>
+
+          @endif
 
         </div>
 
