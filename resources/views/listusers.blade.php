@@ -35,13 +35,18 @@
       <div class="main-menu">
         <ul class='main-menu'>
         <li>
-          <a href="dashbord-rooms">
+          <a href="roomsadmin">
           <span class='glyphicon glyphicon-home'></span> Rooms
           </a>
         </li>
-        <li class="link-active">
-          <a href="dashbord-feedbacks">
+        <li >
+          <a href="dashbordfeedbacks">
           <span class='glyphicon glyphicon-comment'></span> Feedbacks
+          </a>
+        </li>
+        <li class="link-active">
+          <a href="#">
+          <span class='glyphicon glyphicon-user'></span> Users
           </a>
         </li>
         </ul>
@@ -54,7 +59,7 @@
     <div id="content-wrapper">
     
       <div class="container-fluid">
-        <div class="text-center" style="margin: 50px;"><h1>Viwe all Users</h1></div>
+        <div class="text-center" style="margin: 50px;"><h1>View all Users</h1></div>
         <section class="feedbacks">
           <div class="container">
             <div class="feedbacks-data">

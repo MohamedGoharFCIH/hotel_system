@@ -22,7 +22,6 @@
   <!-- <div class="col-md-8 col-md-offset-2"> -->
 
 
-          @if( Auth::user()->type==1  )
 
               <div class="panel-body">
 
@@ -71,8 +70,9 @@
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-
-                        <li><a href="/feedbacksadmin">Feedbacks</a></li>
+                    
+                        <li><a href="/listusers">Users</a></li>
+                        <li><a href="/dashbordfeedbacks">Feedbacks</a></li>
                         <li><a href="/roomsadmin">Rooms</a></li>
 
                     </ul>
@@ -85,64 +85,6 @@
 
 
         {{--// end nav--}}
-
-            
-           @else  
-
-
-
-
-        <!--Start of social and info-->
-        <section class="social-info">
-
-                <div class="row">
-                    <div class="col-sm-6 col-xs-12">
-                        <div class="social-icons">
-                            <i class="fa fa-facebook" aria-hidden="true"></i>
-                            <i class="fa fa-twitter" aria-hidden="true"></i>
-                            <i class="fa fa-google-plus" aria-hidden="true"></i>
-                            <i class="fa fa-rss" aria-hidden="true"></i>
-                        </div>
-                    </div>
-
-
-        </section>
-        <!--Start of social and info-->
-
-        <!--start of navbar-->
-        <nav class="navbar navbar-default">
-            <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <div class="navbar-header">
-                        <a href="index">
-                            <img src="images/logo.jpg" width="80" height="80">
-                        </a>
-                    </div>
-                </div>
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                       
-                    
-                    <div class="panel-heading btn-primary" style="margin-left: 320px;padding:20px;background:white;color: black;"></div>
-                    <a href="/rooms">Rooms</a>
-                    <a href="contact">Feedbacks</a>
-        
-                    
-                
-            </div>
-        </nav>
-
-
-
-
-          @endif
-
         </div>
 
       </div>

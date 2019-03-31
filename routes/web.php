@@ -24,14 +24,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/admin', 'HomeController@admin')->middleware('admin');
 
-Route::get('/feedbacksadmin', function () {
-    return view('dashbord-feedbacks');
-});
-
-Route::get('/roomsadmin', function () {
-    return view('dashbord-rooms');
-});
-
 //end admin middleware
 
 
@@ -72,7 +64,7 @@ Route::get('/contact', function () {
 
 
 
-Route::get('/login', function () {
+Route::get('/login.html', function () {
     return view('auth/login');
 });
 

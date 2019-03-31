@@ -19,7 +19,7 @@ class manage extends Controller
             $feedback->user_id = Auth::User()->id;
             $feedback->message_date = date('Y-m-d H:i:s');
             $feedback->save();
-            return redirect('/home');
+            return redirect('/contact');
 
 
           }

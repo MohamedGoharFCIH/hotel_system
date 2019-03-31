@@ -35,14 +35,18 @@
       <div class="main-menu">
         <ul class='main-menu'>
         <li>
-
           <a href="roomsadmin">
           <span class='glyphicon glyphicon-home'></span> Rooms
           </a>
         </li>
         <li class="link-active">
-          <a href="feedbacksadmin">
+          <a href="#">
           <span class='glyphicon glyphicon-comment'></span> Feedbacks
+          </a>
+        </li>
+        <li >
+          <a href="listusers">
+          <span class='glyphicon glyphicon-user'></span> Users
           </a>
         </li>
         </ul>
