@@ -9,7 +9,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+use App\User;
 Route::get('/', function () {
     return view('welcome');
 });
@@ -24,14 +24,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/admin', 'HomeController@admin')->middleware('admin');
 
-Route::get('/feedbacksadmin', function () {
-    return view('dashbord-feedbacks');
-});
-
-Route::get('/roomsadmin', function () {
-    return view('dashbord-rooms');
-});
-
 //end admin middleware
 
 
@@ -41,38 +33,38 @@ Route::get('/index', function () {
 });
 
 Route::get('/admin', function () {
-    if (Auth::guest()) 
+    if (Auth::guest())
         return redirect('login');
     return view('admin');
 });
 
 Route::get('/rooms', function () {
-    if (Auth::guest()) 
+    if (Auth::guest())
         return redirect('login');
     return view('rooms');
 });
 
 Route::get('/services', function () {
-    if (Auth::guest()) 
+    if (Auth::guest())
         return redirect('login');
     return view('services');
 });
 
 Route::get('/booking', function () {
-    if (Auth::guest()) 
+    if (Auth::guest())
         return redirect('login');
     return view('booking');
 });
 
 Route::get('/contact', function () {
-    if (Auth::guest()) 
+    if (Auth::guest())
         return redirect('login');
     return view('contact');
 });
 
 
 
-Route::get('/login', function () {
+Route::get('/login.html', function () {
     return view('auth/login');
 });
 
@@ -92,3 +84,18 @@ Route::get('addfeedback', 'manage@AddFeedback');
 Route::post('addfeedback', 'manage@AddFeedback');
 Route::get('dashbordfeedbacks', 'manage@dashbordfeedbacks');
 // end feedbacks part
+// eidt user
+Route::get('editview/{id}', "manage@Edit");
+Route::post('editview/{id}', "manage@Edit");
+
+
+// delete users
+
+Route::get('listusers/{id}', function($id)
+{
+    $user=User::find($id);
+    $user->delete();
+    return redirect('listusers');
+});
+// read message
+Route::get('/readMessage/{id}', 'manage@read');

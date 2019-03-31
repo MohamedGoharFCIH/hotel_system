@@ -19,7 +19,7 @@ class manage extends Controller
             $feedback->user_id = Auth::User()->id;
             $feedback->message_date = date('Y-m-d H:i:s');
             $feedback->save();
-            return redirect('/home');
+            return redirect('/contact');
 
 
           }
@@ -27,6 +27,8 @@ class manage extends Controller
 
 
         }
+
+
 
         public function dashbordfeedbacks() {
           $feedbacks = Feedback::all();
@@ -36,10 +38,32 @@ class manage extends Controller
         public function listusers()
         {
           $user = User::select('*')->where('type', '=', 0)->get();
-         
+
           return view('listusers', compact('user'));
 
         }
+        public function read($id)
+          {
+                $feed = Feedback::find($id);
+                $mess=$feed->message;
+               return view('readMessage', compact('mess'));
+          }
 
+          public function Edit(Request $request , $id)
+          {
+            if ($request->isMethod('post')) {
+              $user=User::find($id);
+              $user->name=$request->input('name');
+              $user->email=$request->input('email');
+              $user->address=$request->input('address');
+              $user->phone_num=$request->input('phone_num');
+              $user->save();
+                return redirect("listusers");
+            }else {
+             $user=User::find($id);
+              $arr = array('user' => $user);
+              return view('editview',$arr);
 
+          }
+        }
 }

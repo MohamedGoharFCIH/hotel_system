@@ -35,18 +35,13 @@
       <div class="main-menu">
         <ul class='main-menu'>
         <li>
-          <a href="roomsadmin">
+          <a href="dashbord-rooms">
           <span class='glyphicon glyphicon-home'></span> Rooms
           </a>
         </li>
         <li class="link-active">
-          <a href="#">
+          <a href="dashbord-feedbacks">
           <span class='glyphicon glyphicon-comment'></span> Feedbacks
-          </a>
-        </li>
-        <li >
-          <a href="listusers">
-          <span class='glyphicon glyphicon-user'></span> Users
           </a>
         </li>
         </ul>
@@ -59,28 +54,40 @@
     <div id="content-wrapper">
 
       <div class="container-fluid">
-        <div class="text-center" style="margin: 50px;"><h1>View all feedbacks data</h1></div>
+        <div class="text-center" style="margin: 50px;"><h1>Edit User</h1></div>
         <section class="feedbacks">
           <div class="container">
             <div class="feedbacks-data">
-              <table class="feedbacks-table">
+                <table class="feedbacks-table">
+
                   <tr>
-                    <th>Feedback ID</th>
-                    <th>Feedback OwnerID</th>
-                    <th>Feedback Subject</th>
-                    <th>Feedback Text</th>
+
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Address </th>
+                    <th>Phone </th>
+
                   </tr>
+                     <tr>
+                      <form action="/editview/{{$user->id}}" method="post">
+                        {{csrf_field ()}}
+                    <td>    <input type="text" name="name" placeholder="Enter name" value="{{$user->name}}"> </td>
+                        </br>
+                    <td>      <input type="text" name="email" placeholder="Enter email" value="{{$user->email}}">   </td>
+                        </br>
+                      <td>
+                           <input type="text" name="address" placeholder="Enter address" value="{{$user->address}}">
+                        </td>
+                        </br>
+                          <td><input type="text" name="phone_num" placeholder="Enter phone_num"value="{{$user->phone_num}}">  </td>
+                        </br>
+                    <td>  <button type="submit" class="btn btn-primary">
+                          {{ __('Save') }}
+                      </button>
 
-                  @foreach($feedbacks as $f)
-                  <tr>
-                    <td>{{$f->id}}</td>
-                    <td>{{$f->user_id}}</td>
-                    <td>{{$f->subject}}</td>
-                    <td> <a href="{{"/readMessage/".$f->id}}" class="btn btn-success"> read message </a></td>
-                  </tr>
-                @endforeach
+                      </form>
 
-
+                    </tr>
                 </table>
             </div>
           </div>
