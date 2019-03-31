@@ -23,11 +23,20 @@
               <i class="fa fa-rss" aria-hidden="true"></i>
             </div>
           </div>
+          @auth
+          <div class="col-sm-6 col-xs-12">
+            <div class="top-info">
+              <p><a href="myaccount.html">{{Auth::user()->name }}</a> | <a href="{{ route('logout') }}">Log Out</a></p>
+            </div>
+          </div>
+          @endauth
+          @guest
           <div class="col-sm-6 col-xs-12">
             <div class="top-info">
               <p><a href="login.html">Log In</a> | <a href="sign-up.html">Sign Up</a></p>
             </div>
           </div>
+          @endguest
         </div>
       </div>
     </section>

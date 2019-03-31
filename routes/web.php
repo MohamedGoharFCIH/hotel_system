@@ -23,29 +23,50 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // start admin middleware
 
-Route::get('admin/routes', 'HomeController@admin')->middleware('admin');
+Route::get('/admin', 'HomeController@admin')->middleware('admin');
 
+Route::get('/feedbacksadmin', function () {
+    return view('dashbord-feedbacks');
+});
+
+Route::get('/roomsadmin', function () {
+    return view('dashbord-rooms');
+});
 
 //end admin middleware
 
-
+// start page routing
 Route::get('/index.html', function () {
     return view('welcome');
 });
 
+Route::get('/admin', function () {
+    if (Auth::guest()) 
+        return redirect('login');
+    return view('admin');
+});
+
 Route::get('/rooms.html', function () {
+    if (Auth::guest()) 
+        return redirect('login');
     return view('rooms');
 });
 
 Route::get('/services.html', function () {
+    if (Auth::guest()) 
+        return redirect('login');
     return view('services');
 });
 
 Route::get('/booking.html', function () {
+    if (Auth::guest()) 
+        return redirect('login');
     return view('booking');
 });
 
 Route::get('/contact.html', function () {
+    if (Auth::guest()) 
+        return redirect('login');
     return view('contact');
 });
 
@@ -57,6 +78,9 @@ Route::get('/sign-up.html', function () {
     return view('auth/register');
 });
 
+Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
+
+// end page routing
 
 // start feedbacks part
 
