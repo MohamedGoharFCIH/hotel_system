@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 use App\Feedback;
 use App\User;
 use Auth;
@@ -28,6 +29,20 @@ class manage extends Controller
 
         }
 
+        public function AddAdmin(Request $request)
+        {
+            $new = new User();
+            $new->name = $request['name'];
+            $new->email = $request['email'];
+            $new->phone_num = $request['phone_num'];
+            $new->address = $request['address'];
+            $new->password = Hash::make($request['address']);
+            $new->type = $request['type'];
+            $new->save();
+            return redirect('/addadmin-admin');
+        }
+        
+        
         public function dashbordfeedbacks() {
           $feedbacks = Feedback::all();
           return view('dashbord-feedbacks', compact('feedbacks'));
@@ -35,9 +50,9 @@ class manage extends Controller
 
         public function listusers()
         {
-          $user = User::select('*')->where('type', '=', 0)->get();
+          $user = User::select('*')->get();
          
-          return view('listusers', compact('user'));
+          return view('dashbord-listusers', compact('user'));
 
         }
 

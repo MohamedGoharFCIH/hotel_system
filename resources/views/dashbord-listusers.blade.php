@@ -33,15 +33,30 @@
     <!-- Navigation - Start  -->
     <nav id="sidemenu">
       <div class="main-menu">
-        <ul class='main-menu'>
+      <ul class='main-menu'>
         <li>
-          <a href="dashbord-rooms">
+          <a href="rooms-admin">
           <span class='glyphicon glyphicon-home'></span> Rooms
           </a>
         </li>
+        <li >
+          <a href="feedbacks-admin">
+          <span class='glyphicon glyphicon-envelope'></span> Feedbacks
+          </a>
+        </li>
         <li class="link-active">
-          <a href="dashbord-feedbacks">
-          <span class='glyphicon glyphicon-comment'></span> Feedbacks
+          <a href="#">
+          <span class='glyphicon glyphicon-user'></span> Users
+          </a>
+        </li>
+          <li>
+          <a href="addadmin-admin">
+          <span class='glyphicon glyphicon-king'></span> Admins
+          </a>
+        </li>
+        <li>
+          <a href="home">
+          <span class='glyphicon glyphicon-cog'></span> Main menu
           </a>
         </li>
         </ul>
@@ -54,7 +69,7 @@
     <div id="content-wrapper">
     
       <div class="container-fluid">
-        <div class="text-center" style="margin: 50px;"><h1>Viwe all Users</h1></div>
+        <div class="text-center" style="margin: 50px;"><h1>Veiw all Users</h1></div>
         <section class="feedbacks">
           <div class="container">
             <div class="feedbacks-data">
@@ -62,6 +77,7 @@
               <table class="feedbacks-table">
                   <tr>
                     <th>User ID</th>
+                    <th>Type</th>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Address </th>
@@ -73,6 +89,12 @@
                    @foreach($user as $us)
                   <tr>
                     <td>{{$us->id}}</td>
+                    <td> @if ($us->type == 1)
+                    Admin
+                    @else
+                    Client
+                    @endif
+                    </td>
                     <td>{{$us->name}}</td>
                     <td>{{$us->email}}</td>
                     <td>{{$us->address}}</td>
