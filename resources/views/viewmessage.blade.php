@@ -54,29 +54,12 @@
     <div id="content-wrapper">
 
       <div class="container-fluid">
-        <div class="text-center" style="margin: 50px;"><h1>View all feedbacks data</h1></div>
+        <div class="text-center" style="margin: 50px;"><h1>Viwe all Messgge</h1></div>
         <section class="feedbacks">
           <div class="container">
-            <div class="feedbacks-data">
-              <table class="feedbacks-table">
-                  <tr>
-                    <th>Feedback ID</th>
-                    <th>Feedback OwnerID</th>
-                    <th>Feedback Subject</th>
-                    <th>Feedback Text</th>
-                  </tr>
+            <div class="message-data">
 
-                  @foreach($feedbacks as $f)
-                  <tr>
-                    <td>{{$f->id}}</td>
-                    <td>{{$f->user_id}}</td>
-                    <td>{{$f->subject}}</td>
-                    <td> <a href="{{"/viewmessage/".$f->id}}" class="btn btn-primary"> Read Message </a></td>
-                  </tr>
-                @endforeach
-
-
-                </table>
+              <div class="form-control" name="contact-message">{{$mess}}</div>
             </div>
           </div>
         </section>
