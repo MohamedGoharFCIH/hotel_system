@@ -21,6 +21,7 @@ class CreateReservation extends Migration
             $table->integer('num_rooms');
             $table->date('check_in');
             $table->date('check_out');
+            $table->string('service_type');
             $table->float('total_price');
             $table->text('payment_method');
         });

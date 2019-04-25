@@ -17,12 +17,8 @@ class CreateRoom extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->integer('room_num');
-            $table->integer('room_floor');
-            $table->integer('room_status');
             $table->integer('room_available');
-            $table->string('room_type');
             $table->integer('num_people');
-            $table->float('room_price');
         });
     }
 

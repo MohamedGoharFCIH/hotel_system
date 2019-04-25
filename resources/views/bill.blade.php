@@ -81,54 +81,35 @@
       <section class="booking">
         <div class="container">
           <div class="booking-data">
-            <form class="booking-form" method="POST" action="/reserveroom">
-              {{csrf_field()}}
-              <div class="row">
-                <div class="col-sm-6 col-xs-12">
-                  <div class="input-group">
-                    <p>CHECK-IN:</p>
-                    <input type="date" name="book-checkin" required="required">
-                  </div>
-                </div>
-                <div class="col-sm-6 col-xs-12">
-                  <div class="input-group">
-                    <p>CHECK-OUT:</p>
-                    <input type="date" name="book-checkout" required="required">
-                  </div>
-                </div>
-                <div class="col-sm-6 col-xs-12">
-                  <p>NUMBER OF ADULTS:</p>
-                  <select name="book-adults-checker" required="required">
+            <table class="feedbacks-table">
+                <tr>
+                  <th>User ID</th>
+                  <th>Number of people</th>
+                  <th>Room Number</th>
+                  <th>Service type </th>
+                  <th>payment method </th>
+                  <th>check in date</th>
+                  <th>check out date</th>
+                  <th>Total Price</th>
+                  <th>Booking date</th>
 
-                    <option value="1">1</option><option value="2">2</option><option value="3">3</option>
+                </tr>
+                <tr>
+                  <td>{{$reservation->user_id}}</td>
+                  <td>{{$reservation->num_ppl}}</td>
+                  <td>{{$reservation->num_rooms}}</td>
+                  <td>{{$reservation->service_type}}</td>
+                  <td>{{$reservation->payment_method}}</td>
+                  <td>{{$reservation->check_in}}</td>
+                  <td>{{$reservation->check_out}}</td>
+                  <td>{{$reservation->total_price}}$</td>
+                  <td>{{$reservation->updated_at}}</td>
 
-                  </select>
-                </div>
-
-                <div class="col-sm-6 col-xs-12">
-                  <p>SERVICES:</p>
-                  <select name="serve-full" required="required">
-
-                    <option value="Full Board">Full Board</option>
-                    <option value="Half Board">Half Board</option>
-                    <option value="All-Inclusive">All-Inclusive</option>
-
-                  </select>
-                </div>
-                <div class="col-sm-6 col-xs-12">
-                  <p>PAYMENT METHOD::</p>
-                  <select name="payment_method" required="required">
-
-                    <option value="On Arrival">On Arrival</option>
-                    <option value="Online">Online</option>
+                </tr>
 
 
-                  </select>
-                </div>
 
-                 <div class="text-center"><input type="submit" value="Book Now"></div>
-              </div>
-            </form>
+              </table>
           </div>
         </div>
       </section>

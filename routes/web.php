@@ -33,31 +33,31 @@ Route::get('/index', function () {
 });
 
 Route::get('/admin', function () {
-    if (Auth::guest()) 
+    if (Auth::guest())
         return redirect('login');
     return view('admin');
 });
 
 Route::get('/rooms', function () {
-    if (Auth::guest()) 
+    if (Auth::guest())
         return redirect('login');
     return view('rooms');
 });
 
 Route::get('/services', function () {
-    if (Auth::guest()) 
+    if (Auth::guest())
         return redirect('login');
     return view('services');
 });
 
 Route::get('/booking', function () {
-    if (Auth::guest()) 
+    if (Auth::guest())
         return redirect('login');
     return view('booking');
 });
 
 Route::get('/contact', function () {
-    if (Auth::guest()) 
+    if (Auth::guest())
         return redirect('login');
     return view('contact');
 });
@@ -72,6 +72,10 @@ Route::get('/sign-up', function () {
     return view('auth/register');
 });
 
+Route::get('/bill', function () {
+    return view('bill');
+});
+
 Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
 
 // end page routing
@@ -84,3 +88,4 @@ Route::get('addfeedback', 'manage@AddFeedback');
 Route::post('addfeedback', 'manage@AddFeedback');
 Route::get('dashbordfeedbacks', 'manage@dashbordfeedbacks');
 // end feedbacks part
+Route::post('reserveroom', 'manage@ReserveRoom');
