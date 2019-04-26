@@ -80,12 +80,27 @@ Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout']
 
 // end page routing
 
-// list usr
-Route::get('/listusers', 'manage@listusers');
+// start admin list usr
+Route::get('/listusers-admin', 'manage@listusers');
+// end admin list users
 
 // start feedbacks part
 Route::get('addfeedback', 'manage@AddFeedback');
 Route::post('addfeedback', 'manage@AddFeedback');
-Route::get('dashbordfeedbacks', 'manage@dashbordfeedbacks');
+Route::get('feedbacks-admin', 'manage@dashbordfeedbacks');
 // end feedbacks part
+
 Route::post('reserveroom', 'manage@ReserveRoom');
+
+// start admin view rooms
+Route::get('/rooms-admin', function () {
+    return view('dashbord-rooms');
+});
+// end admin view rooms
+
+// start admin add admin
+Route::get('/addadmin-admin', function () {
+    return view('dashbord-admin');
+});
+Route::post('addadmin', 'manage@AddAdmin');
+// end admin add admin
