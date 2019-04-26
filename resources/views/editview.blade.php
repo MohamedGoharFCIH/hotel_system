@@ -35,13 +35,28 @@
       <div class="main-menu">
         <ul class='main-menu'>
         <li>
-          <a href="dashbord-rooms">
+          <a href="rooms-admin">
           <span class='glyphicon glyphicon-home'></span> Rooms
           </a>
         </li>
-        <li class="link-active">
-          <a href="dashbord-feedbacks">
-          <span class='glyphicon glyphicon-comment'></span> Feedbacks
+        <li >
+          <a href="feedbacks-admin">
+          <span class='glyphicon glyphicon-envelope'></span> Feedbacks
+          </a>
+        </li>
+        <li>
+          <a href="listusers-admin">
+          <span class='glyphicon glyphicon-user'></span> Users
+          </a>
+        </li>
+          <li>
+          <a href="addadmin-admin">
+          <span class='glyphicon glyphicon-king'></span> Admins
+          </a>
+        </li>
+        <li>
+          <a href="home">
+          <span class='glyphicon glyphicon-cog'></span> Main menu
           </a>
         </li>
         </ul>

@@ -1,5 +1,4 @@
-@extends('layouts.app')
-@section('content')
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,6 +43,13 @@
                             <i class="fa fa-rss" aria-hidden="true"></i>
                         </div>
                     </div>
+                    @auth
+                        <div class="col-sm-6 col-xs-12">
+                          <div class="top-info">
+                            <p><a href="myaccount.html">{{Auth::user()->name }}</a> | <a href="{{ route('logout') }}">Log Out</a></p>
+                          </div>
+                        </div>
+                    @endauth
 
 
         </section>
@@ -70,11 +76,10 @@
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                    
-                        <li><a href="/listusers">Users</a></li>
-                        <li><a href="/dashbordfeedbacks">Feedbacks</a></li>
-                        <li><a href="/roomsadmin">Rooms</a></li>
-
+                        <li><a href="/feedbacks-admin">Feedbacks</a></li>
+                        <li><a href="/rooms-admin">Rooms</a></li>
+                        <li><a href="/addadmin-admin">Admins</a></li>
+                        <li><a href="/listusers-admin">Users</a></li>
                     </ul>
                 </div>
             </div>
@@ -144,5 +149,4 @@
     
 
 </body>
-@endsection
 </html>
