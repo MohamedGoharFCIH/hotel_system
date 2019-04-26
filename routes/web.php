@@ -9,7 +9,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+use App\User;
 Route::get('/', function () {
     return view('welcome');
 });
@@ -89,6 +89,23 @@ Route::get('addfeedback', 'manage@AddFeedback');
 Route::post('addfeedback', 'manage@AddFeedback');
 Route::get('feedbacks-admin', 'manage@dashbordfeedbacks');
 // end feedbacks part
+
+// eidt user
+Route::get('editview/{id}', "manage@Edit");
+Route::post('editview/{id}', "manage@Edit");
+
+
+// delete users
+
+Route::get('listusers-admin/{id}', function($id)
+{
+    $user=User::find($id);
+    $user->delete();
+    return redirect('listusers');
+});
+// read message
+Route::get('/readMessage/{id}', 'manage@read');
+
 
 Route::post('reserveroom', 'manage@ReserveRoom');
 

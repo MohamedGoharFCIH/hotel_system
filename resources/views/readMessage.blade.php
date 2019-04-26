@@ -39,12 +39,12 @@
           <span class='glyphicon glyphicon-home'></span> Rooms
           </a>
         </li>
-        <li class="link-active">
-          <a href="#">
+        <li >
+          <a href="feedbacks-admin">
           <span class='glyphicon glyphicon-envelope'></span> Feedbacks
           </a>
         </li>
-        <li>
+        <li >
           <a href="listusers-admin">
           <span class='glyphicon glyphicon-user'></span> Users
           </a>
@@ -69,27 +69,13 @@
     <div id="content-wrapper">
 
       <div class="container-fluid">
-        <div class="text-center" style="margin: 50px;"><h1>View all feedbacks data</h1></div>
+        <div class="text-center" style="margin: 50px;"><h1>View all Users</h1></div>
         <section class="feedbacks">
           <div class="container">
             <div class="feedbacks-data">
+
               <table class="feedbacks-table">
-                  <tr>
-                    <th>Feedback ID</th>
-                    <th>Feedback OwnerID</th>
-                    <th>Feedback Subject</th>
-                    <th>Feedback Text</th>
-                  </tr>
-
-                  @foreach($feedbacks as $f)
-                  <tr>
-                    <td>{{$f->id}}</td>
-                    <td>{{$f->user_id}}</td>
-                    <td>{{$f->subject}}</td>
-                    <td> <a href="{{"/readMessage/".$f->id}}" class="btn btn-success"> read message </a></td>
-                  </tr>
-                @endforeach
-
+                  <div>{{$mess}}<div>
 
                 </table>
             </div>
