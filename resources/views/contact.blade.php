@@ -114,24 +114,38 @@
         </div>
         <div class="contact-form-holder">
 
+          @if ($errors->any())
+              <div class="alert alert-danger">
+                  <ul>
+                      @foreach ($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                      @endforeach
+                  </ul>
+              </div>
+            @endif
+
+            @if (\Session::get('success'))
+                <div class="alert alert-success">
+                    <p>{{ \Session::get('success') }}</p>
+                </div>
+            @endif
 
           <form id="contactus-form" action="addfeedback" method="POST">
             {{csrf_field()}}
             <div class="row">
-
               <div class="col-xs-12">
-
               </div>
-
               <div class="col-sm-6 col-xs-12">
                 <div class="input-group input-group-lg">
                   <span class="input-group-addon" id="basic-addon1">?</span>
-                  <input type="text" class="form-control" name="contact-subject" placeholder="Subject" aria-describedby="basic-addon1" required="required">
+                            <input type="text" class="form-control" name="contact-subject" placeholder="Subject" aria-describedby="basic-addon1" required="required" value="{{Request::old('contact-subject')}}">
                 </div>
               </div>
               <div class="col-xs-12">
                 <div class="form-group">
-                  <textarea class="form-control" name="contact-message" rows="5" placeholder="Message" required="required"></textarea>
+                  <!-- <div class="form-group{{$errors->has('name') ? 'has-error' : '' }}"> -->
+                  <textarea class="form-control" name="contact-message" rows="5" placeholder="Message" required="required" value="{{Request::old('contact-message')}}"></textarea>
+                <!-- </div> -->
                 </div>
               </div>
               <div class="col-xs-12">

@@ -9,7 +9,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+use App\User;
 Route::get('/', function () {
     return view('welcome');
 });
@@ -33,31 +33,31 @@ Route::get('/index', function () {
 });
 
 Route::get('/admin', function () {
-    if (Auth::guest()) 
+    if (Auth::guest())
         return redirect('login');
     return view('admin');
 });
 
 Route::get('/rooms', function () {
-    if (Auth::guest()) 
+    if (Auth::guest())
         return redirect('login');
     return view('rooms');
 });
 
 Route::get('/services', function () {
-    if (Auth::guest()) 
+    if (Auth::guest())
         return redirect('login');
     return view('services');
 });
 
 Route::get('/booking', function () {
-    if (Auth::guest()) 
+    if (Auth::guest())
         return redirect('login');
     return view('booking');
 });
 
 Route::get('/contact', function () {
-    if (Auth::guest()) 
+    if (Auth::guest())
         return redirect('login');
     return view('contact');
 });
@@ -84,3 +84,23 @@ Route::get('addfeedback', 'manage@AddFeedback');
 Route::post('addfeedback', 'manage@AddFeedback');
 Route::get('dashbordfeedbacks', 'manage@dashbordfeedbacks');
 // end feedbacks part
+// start Validate
+
+// end Validate
+
+// Akher 7agaa
+// edit user
+Route::get('editview/{id}', "manage@Edit");
+Route::post('editview/{id}', "manage@Edit");
+
+
+// delete users
+
+Route::get('listusers/{id}', function($id)
+{
+    $user=User::find($id);
+    $user->delete();
+    return redirect('listusers');
+});
+// read message
+Route::get('/readMessage/{id}', 'manage@read');

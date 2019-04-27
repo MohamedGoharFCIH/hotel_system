@@ -24,10 +24,25 @@
                         <h1>Welcome To Agaza</h1>
                         <div class="container">
                             <div class="row justify-content-center">
-                                <div class="col-md-8">
+                                <div class="col-md-6">
                                     <div class="card">
                                         <div class="card-header"></div>
 
+                                @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                  @endif
+
+                                  @if (\Session::get('success'))
+                                      <div class="alert alert-success">
+                                          <p>{{ \Session::get('success') }}</p>
+                                      </div>
+                                  @endif
                                         <div class="card-body">
                                             <form method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
                                                 @csrf
@@ -115,4 +130,3 @@
     <script src="{{URL::asset("js/main.js")}}"></script>
     </body>
     </html>
-

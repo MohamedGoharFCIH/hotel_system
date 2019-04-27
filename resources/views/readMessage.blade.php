@@ -35,13 +35,18 @@
       <div class="main-menu">
         <ul class='main-menu'>
         <li>
-          <a href="dashbord-rooms">
+          <a href="roomsadmin">
           <span class='glyphicon glyphicon-home'></span> Rooms
           </a>
         </li>
-        <li class="link-active">
-          <a href="dashbord-feedbacks">
+        <li >
+          <a href="dashbordfeedbacks">
           <span class='glyphicon glyphicon-comment'></span> Feedbacks
+          </a>
+        </li>
+        <li class="link-active">
+          <a href="#">
+          <span class='glyphicon glyphicon-user'></span> Users
           </a>
         </li>
         </ul>
@@ -54,53 +59,13 @@
     <div id="content-wrapper">
 
       <div class="container-fluid">
-        <div class="text-center" style="margin: 50px;"><h1>Viwe all Users</h1></div>
+        <div class="text-center" style="margin: 50px;"><h1>View all Users</h1></div>
         <section class="feedbacks">
           <div class="container">
             <div class="feedbacks-data">
 
-
-              @if ($errors->any())
-                  <div class="alert alert-danger">
-                      <ul>
-                          @foreach ($errors->all() as $error)
-                              <li>{{ $error }}</li>
-                          @endforeach
-                      </ul>
-                  </div>
-                @endif
-
               <table class="feedbacks-table">
-                  <tr>
-                    <th>User ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Address </th>
-                    <th>Phone </th>
-                    <th>Created at </th>
-                    <th>Updated at</th>
-                    <th>Delete</th>
-                    <th>Edit</th>
-                  </tr>
-                   @foreach($user as $us)
-                  <tr>
-                    <td>{{$us->id}}</td>
-                    <td>{{$us->name}}</td>
-                    <td>{{$us->email}}</td>
-                    <td>{{$us->address}}</td>
-                    <td>{{$us->phone_num}}</td>
-                    <td>{{$us->created_at}}</td>
-                    <td>{{$us->updated_at}}</td>
-                    <td>
-                    <a href="listusers/{{$us->id}}" class="btn btn-danger">Delete</a>
-                  </td>
-                  <td>
-                    <a href="editview/{{$us->id}}" class="btn btn-success">Edit</a>
-                  </td>
-                  </tr>
-                @endforeach
-
-
+                  <div>{{$mess}}<div>
 
                 </table>
             </div>
