@@ -28,17 +28,16 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')
         //          ->hourly();
 
-/*
+
         $schedule->call(function () {
-          //$finished = DB::table('reservations')->where('check_out', '<', date('Y-m-d'))->value('num_rooms');
           $finished = Reservation::select('num_rooms')->where('check_out', '<', date('Y-m-d'))->get();
-          foreach ($finished as $k => $v) {
-          DB::table('Rooms')->where('room_num', $v)->update(array('room_available'=>0));
+          foreach ($finished as  $f) {
+          DB::table('Rooms')->where('room_num', $f->num_rooms)->update(array('room_available'=>1));
           }
-          })->everyMinute();
+        })->daily();
 
 
-*/
+
     }
 
     /**

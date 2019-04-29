@@ -39,7 +39,7 @@
           @endguest
         </div>
       </div>
-        
+
     </section>
     <!--Start of social and info-->
 

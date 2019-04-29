@@ -17,6 +17,8 @@ class manage extends Controller
 {
         public function AddFeedback(Request $request)
         {
+          if(Auth::user()->type==0)
+              return redirect('index');
           if($request->isMethod('post')){
             $feedback = new Feedback();
             $feedback->Subject = $request->input('contact-subject');
@@ -25,45 +27,48 @@ class manage extends Controller
             $feedback->message_date = date('Y-m-d H:i:s');
             $feedback->save();
             return redirect('/contact');
-
-
-
           }
           return view('contact');
-
-
         }
 
 
         public function AddAdmin(Request $request)
         {
+            if(Auth::user()->type==0)
+              return redirect('index');
             $new = new User();
             $new->name = $request['name'];
             $new->email = $request['email'];
             $new->phone_num = $request['phone_num'];
             $new->address = $request['address'];
-            $new->password = Hash::make($request['address']);
+            $new->password = Hash::make($request['password']);
             $new->type = $request['type'];
             $new->save();
             return redirect('/addadmin-admin');
         }
-        
-        
+
+
         public function dashbordfeedbacks() {
+          if(Auth::user()->type==0)
+              return redirect('home');
           $feedbacks = Feedback::all();
           return view('dashbord-feedbacks', compact('feedbacks'));
         }
 
         public function listusers()
         {
+          if(Auth::user()->type==0)
+              return redirect('index');
           $user = User::select('*')->get();
-         
+
           return view('dashbord-listusers', compact('user'));
         }
 
 
         public function ReserveRoom(Request $request)
         {
+          if(Auth::user()->type==1)
+              return redirect('home');
           if($request->isMethod('post')){
 
             $reservation = new Reservation();
@@ -158,13 +163,18 @@ class manage extends Controller
         }
         public function read($id)
           {
-                $feed = Feedback::find($id);
-                $mess=$feed->message;
-               return view('readMessage', compact('mess'));
+            if(Auth::user()->type==0)
+                return redirect('index');
+            $feed = Feedback::find($id);
+            $mess=$feed->message;
+            return view('readMessage', compact('mess'));
           }
+
 
           public function Edit(Request $request , $id)
           {
+            if(Auth::user()->type==0)
+                return redirect('index');
             if ($request->isMethod('post')) {
               $user=User::find($id);
               $user->name=$request->input('name');
@@ -180,4 +190,58 @@ class manage extends Controller
 
           }
         }
+        public function editAccount(Request $request)
+        {
+          $id = Auth::user()->id;
+          $user=User::find($id);
+          $user->name =  $request->input('edit-name');
+          $user->email = $request->input('edit-email');
+          if(!empty($request['edit-password']))
+            $user->password = Hash::make($request['edit-password']);
+
+          else
+            $user->password = Auth::user()->password;
+
+          $user->address = $request->input('edit-address');
+          $user->phone_num = $request->input('edit-phone_num');
+
+          $save = $user->save();
+          if($save)
+          {
+            echo " Data Edited Successfully .... you will redirect after 3 second";
+            header( "refresh:3 ;url =myaccount.html" );
+          }
+          else {
+            echo " Error in  Edit Data Try again !.... you will redirect after 3 second ";
+            header( "refresh:3 ;url =myaccount.html" );
+          }
+
+        }
+
+
+
+        public function fetchAccount(Request $request)
+        {
+          $user_id = Auth::user()->id;
+          $hist = Reservation::select('*')->where('user_id', '=', $user_id)->get();
+          return view('myaccount', compact('hist'));
+        }
+
+
+        public function cancelBook($id)
+        {
+          if(Auth::user()->type==1)
+              return redirect('home');
+           $room_num = DB::table('reservations')->where('id', $id)->value('num_rooms');
+           $a = Reservation::where('id', $id)->update(array('payment_method'=>'canceled'));
+           $b = Room::where('room_num', $room_num)->update(array('room_available'=>1));
+           if($a && $b){
+             echo " canceled Successfully.... you will redirect after 3 second ";
+             header( "refresh:3 ;url=/myaccount.html");
+         }
+        }
+
+
+
+
 }

@@ -25,7 +25,7 @@
           </div>
           <div class="col-sm-6 col-xs-12">
             <div class="top-info">
-              <p><a href="myaccount">Customer Name</a> | <a href="#">Log Out</a></p>
+              <p><a href="myaccount.html">Customer Name</a> | <a href="#">Log Out</a></p>
             </div>
           </div>
         </div>
@@ -65,7 +65,7 @@
       </nav>
     <!--end of navbar-->
 
-    
+
 
     <script src="{{URL::asset("js/jquery-1.12.1.min.js")}}"></script>
     <script src="{{URL::asset("js/jquery.nicescroll.js")}}"></script>
