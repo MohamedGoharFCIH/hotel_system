@@ -375,11 +375,11 @@
     </div>
     <!--end of scroll to top button-->
 
-    <script src="{{URL::asset("js/jquery-1.12.1.min.js")}}"></script>
-    <script src="{{URL::asset("js/jquery.nicescroll.js")}}"></script>
-    <script src="{{URL::asset("js/wow.min.js")}}"></script>
-    <script src="{{URL::asset("js/bootstrap.min.js")}}"></script>
-    <script src="{{URL::asset("dist/owl.carousel.min.js")}}></script>
-    <script src="{{URL::asset("js/main.js")}}"></script>
+    <script src="{{asset('js/jquery-1.12.1.min.js')}}"></script>
+    <script src="{{asset('js/jquery.nicescroll.js')}}"></script>
+    <script src="{{asset('js/wow.min.js')}}"></script>
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('dist/owl.carousel.min.js')}}"></script>
+    <script src="{{asset('js/main.js')}}"></script>
     </body>
 </html>

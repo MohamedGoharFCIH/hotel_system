@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" >
-
+{{$change = ''}}
   <head>
     <meta charset="UTF-8">
     <title>Agaza | Admin-Home</title>
@@ -40,13 +40,23 @@
           </a>
         </li>
         <li >
-          <a href="dashbordfeedbacks">
-          <span class='glyphicon glyphicon-comment'></span> Feedbacks
+          <a href="feedbacks-admin">
+          <span class='glyphicon glyphicon-envelope'></span> Feedbacks
           </a>
         </li>
-        <li >
-          <a href="listusers">
+        <li>
+          <a href="listusers-admin">
           <span class='glyphicon glyphicon-user'></span> Users
+          </a>
+        </li>
+          <li>
+          <a href="addadmin-admin">
+          <span class='glyphicon glyphicon-king'></span> Admins
+          </a>
+        </li>
+        <li>
+          <a href="home">
+          <span class='glyphicon glyphicon-cog'></span> Main menu
           </a>
         </li>
         </ul>
@@ -62,158 +72,37 @@
           <h1>Welcome Admin <span>!</span></h1>
           <h3>Watch all rooms and you have all rights to do anything</h3>
         </div>
-        <div class="row">
-            <div class="col-md-6 col-xs-12">
-              <div class="rooms-buttons">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>4</button>
-                <button>5</button>
-              </div>
-            </div>
-            <div class="col-md-6 col-xs-12">
-              <div class="rooms-buttons">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>4</button>
-                <button>5</button>
-              </div>
-            </div>
-            <div class="col-md-6 col-xs-12">
-              <div class="rooms-buttons">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>4</button>
-                <button>5</button>
-              </div>
-            </div>
-            <div class="col-md-6 col-xs-12">
-              <div class="rooms-buttons">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>4</button>
-                <button>5</button>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6 col-xs-12">
-              <div class="rooms-buttons">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>4</button>
-                <button>5</button>
-              </div>
-            </div>
-            <div class="col-md-6 col-xs-12">
-              <div class="rooms-buttons">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>4</button>
-                <button>5</button>
-              </div>
-            </div>
-            <div class="col-md-6 col-xs-12">
-              <div class="rooms-buttons">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>4</button>
-                <button>5</button>
-              </div>
-            </div>
-            <div class="col-md-6 col-xs-12">
-              <div class="rooms-buttons">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>4</button>
-                <button>5</button>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6 col-xs-12">
-              <div class="rooms-buttons">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>4</button>
-                <button>5</button>
-              </div>
-            </div>
-            <div class="col-md-6 col-xs-12">
-              <div class="rooms-buttons">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>4</button>
-                <button>5</button>
-              </div>
-            </div>
-            <div class="col-md-6 col-xs-12">
-              <div class="rooms-buttons">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>4</button>
-                <button>5</button>
-              </div>
-            </div>
-            <div class="col-md-6 col-xs-12">
-              <div class="rooms-buttons">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>4</button>
-                <button>5</button>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6 col-xs-12">
-              <div class="rooms-buttons">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>4</button>
-                <button>5</button>
-              </div>
-            </div>
-            <div class="col-md-6 col-xs-12">
-              <div class="rooms-buttons">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>4</button>
-                <button>5</button>
-              </div>
-            </div>
-            <div class="col-md-6 col-xs-12">
-              <div class="rooms-buttons">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>4</button>
-                <button>5</button>
-              </div>
-            </div>
-            <div class="col-md-6 col-xs-12">
-              <div class="rooms-buttons">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>4</button>
-                <button>5</button>
-              </div>
-            </div>
-          </div>
+        <table class="feedbacks-table">
+                  <tr>
+                    <th>Room's Number</th>
+                    <th>Room's Capacity</th>
+                    <th>Availablity</th>
+                    <th>Free</th>
+                    <th>Set under maintainance</th>
+                  </tr>
+                   @foreach($room as $r)
+                  <tr>
+                    <td>{{$r->room_num}}</td>
+                    <td>{{$r->num_people}}</td>
+                    <td>
+                    @if ($r->room_available == 0)
+                        Under Maintainance
+                    @elseif ($r->room_available == 1)
+                        Free
+                    @else
+                        Occupied
+                    @endif
+                    <td>
+                    <a href="manage-room/{{$r->id}}/{{0}}" class="btn btn-danger">Set under maintainance</a>
+                  </td>
+                  <td>
+                    <a href="manage-room/{{$r->id}}/{{1}}" class="btn btn-success">Free</a>
+                  </td>
+                  
+                  </tr>
+                @endforeach
+                </table>
+          
       </div>
     </div>
     

@@ -72,17 +72,22 @@ Route::get('/sign-up', function () {
     return view('auth/register');
 });
 
+Route::get('/bill', function () {
+    return view('bill');
+});
+
 Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
 
 // end page routing
 
-// list usr
-Route::get('/listusers', 'manage@listusers');
+// start admin list usr
+Route::get('/listusers-admin', 'manage@listusers');
+// end admin list users
 
 // start feedbacks part
 Route::get('addfeedback', 'manage@AddFeedback');
 Route::post('addfeedback', 'manage@AddFeedback');
-Route::get('dashbordfeedbacks', 'manage@dashbordfeedbacks');
+Route::get('feedbacks-admin', 'manage@dashbordfeedbacks');
 // end feedbacks part
 // start Validate
 
@@ -96,7 +101,7 @@ Route::post('editview/{id}', "manage@Edit");
 
 // delete users
 
-Route::get('listusers/{id}', function($id)
+Route::get('listusers-admin/{id}', function($id)
 {
     $user=User::find($id);
     $user->delete();
@@ -104,3 +109,20 @@ Route::get('listusers/{id}', function($id)
 });
 // read message
 Route::get('/readMessage/{id}', 'manage@read');
+
+
+Route::post('reserveroom', 'manage@ReserveRoom');
+
+// start view rooms admin
+Route::get('/rooms-admin', 'manage@listrooms');
+
+Route::get('manage-room/{id}/{option}', 'manage@ManageRoom');
+
+// end admin view rooms
+
+// start admin add admin
+Route::get('/addadmin-admin', function () {
+    return view('dashbord-admin');
+});
+Route::post('addadmin', 'manage@AddAdmin');
+// end admin add admin

@@ -35,18 +35,28 @@
       <div class="main-menu">
         <ul class='main-menu'>
         <li>
-          <a href="roomsadmin">
+          <a href="rooms-admin">
           <span class='glyphicon glyphicon-home'></span> Rooms
           </a>
         </li>
         <li class="link-active">
           <a href="#">
-          <span class='glyphicon glyphicon-comment'></span> Feedbacks
+          <span class='glyphicon glyphicon-envelope'></span> Feedbacks
           </a>
         </li>
-        <li >
-          <a href="listusers">
+        <li>
+          <a href="listusers-admin">
           <span class='glyphicon glyphicon-user'></span> Users
+          </a>
+        </li>
+          <li>
+          <a href="addadmin-admin">
+          <span class='glyphicon glyphicon-king'></span> Admins
+          </a>
+        </li>
+        <li>
+          <a href="home">
+          <span class='glyphicon glyphicon-cog'></span> Main menu
           </a>
         </li>
         </ul>
@@ -57,7 +67,7 @@
 
     <!-- Content - Start  -->
     <div id="content-wrapper">
-    
+
       <div class="container-fluid">
         <div class="text-center" style="margin: 50px;"><h1>View all feedbacks data</h1></div>
         <section class="feedbacks">
@@ -70,17 +80,17 @@
                     <th>Feedback Subject</th>
                     <th>Feedback Text</th>
                   </tr>
-                  
+
                   @foreach($feedbacks as $f)
                   <tr>
                     <td>{{$f->id}}</td>
                     <td>{{$f->user_id}}</td>
                     <td>{{$f->subject}}</td>
-                    <td> <a href="{{"/readMessage/".$f->id}}"> read message </a></td>
+                    <td> <a href="{{"/readMessage/".$f->id}}" class="btn btn-success"> read message </a></td>
                   </tr>
                 @endforeach
-              
-              
+
+
                 </table>
             </div>
           </div>
