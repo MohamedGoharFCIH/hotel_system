@@ -90,7 +90,7 @@ Route::post('addfeedback', 'manage@AddFeedback');
 Route::get('feedbacks-admin', 'manage@dashbordfeedbacks');
 // end feedbacks part
 
-// eidt user
+// edit user
 Route::get('editview/{id}', "manage@Edit");
 Route::post('editview/{id}', "manage@Edit");
 
@@ -109,10 +109,11 @@ Route::get('/readMessage/{id}', 'manage@read');
 
 Route::post('reserveroom', 'manage@ReserveRoom');
 
-// start admin view rooms
-Route::get('/rooms-admin', function () {
-    return view('dashbord-rooms');
-});
+// start view rooms admin
+Route::get('/rooms-admin', 'manage@listrooms');
+
+Route::get('manage-room/{id}/{option}', 'manage@ManageRoom');
+
 // end admin view rooms
 
 // start admin add admin

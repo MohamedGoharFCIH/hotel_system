@@ -57,9 +57,11 @@ class manage extends Controller
         public function listusers()
         {
           $user = User::select('*')->get();
-         
           return view('dashbord-listusers', compact('user'));
         }
+        
+        
+       
 
 
         public function ReserveRoom(Request $request)
@@ -179,5 +181,17 @@ class manage extends Controller
               return view('editview',$arr);
 
           }
+        }
+        public function ManageRoom($id,$option)
+        {
+                  $room = Room::find($id);
+                  $room->room_available = $option;
+                  $room->save();
+                  return $this->listrooms();
+        }
+         public function listrooms()
+        {
+          $room = Room::select('*')->get();
+          return view('dashbord-rooms', compact('room'));
         }
 }
