@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" >
-{{$change = ''}}
+
   <head>
     <meta charset="UTF-8">
-    <title>Agaza | Admin-Home</title>
+    <title>Agaza | Admin-Feedbacks</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{{asset("https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css")}}" rel='stylesheet prefetch'>
     <link href="{{asset("css/font-awesome.min.css")}}"  rel="stylesheet"/>
@@ -34,8 +34,8 @@
     <nav id="sidemenu">
       <div class="main-menu">
         <ul class='main-menu'>
-        <li class="link-active">
-          <a href="#">
+        <li>
+          <a href="rooms-admin">
           <span class='glyphicon glyphicon-home'></span> Rooms
           </a>
         </li>
@@ -44,7 +44,7 @@
           <span class='glyphicon glyphicon-envelope'></span> Feedbacks
           </a>
         </li>
-        <li>
+        <li >
           <a href="listusers-admin">
           <span class='glyphicon glyphicon-user'></span> Users
           </a>
@@ -67,45 +67,23 @@
 
     <!-- Content - Start  -->
     <div id="content-wrapper">
+
       <div class="container-fluid">
-        <div class="text-center">
-          <h1>Welcome Admin <span>!</span></h1>
-          <h3>Watch all rooms and you have all rights to do anything</h3>
-        </div>
-        <table class="feedbacks-table">
-                  <tr>
-                    <th>Room's Number</th>
-                    <th>Room's Capacity</th>
-                    <th>Availablity</th>
-                    <th>Free</th>
-                    <th>Set under maintainance</th>
-                  </tr>
-                   @foreach($room as $r)
-                  <tr>
-                    <td>{{$r->room_num}}</td>
-                    <td>{{$r->num_people}}</td>
-                    <td>
-                    @if ($r->room_available == 0)
-                        Under Maintainance
-                    @elseif ($r->room_available == 1)
-                        Free
-                    @else
-                        Occupied
-                    @endif
-                    <td>
-                    <a href="manage-room/{{$r->id}}/{{0}}" class="btn btn-danger">Set under maintainance</a>
-                  </td>
-                  <td>
-                    <a href="manage-room/{{$r->id}}/{{1}}" class="btn btn-success">Free</a>
-                  </td>
-                  
-                  </tr>
-                @endforeach
+        <div class="text-center" style="margin: 50px;"><h1>View all Users</h1></div>
+        <section class="feedbacks">
+          <div class="container">
+            <div class="feedbacks-data">
+
+              <table class="feedbacks-table">
+                  <div>{{$mess}}<div>
+
                 </table>
-          
+            </div>
+          </div>
+        </section>
       </div>
     </div>
-    
+
 
 
     <script src="{{URL::asset('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')}}"></script>

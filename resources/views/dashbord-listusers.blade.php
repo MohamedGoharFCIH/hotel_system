@@ -33,20 +33,30 @@
     <!-- Navigation - Start  -->
     <nav id="sidemenu">
       <div class="main-menu">
-        <ul class='main-menu'>
+      <ul class='main-menu'>
         <li>
-          <a href="roomsadmin">
+          <a href="rooms-admin">
           <span class='glyphicon glyphicon-home'></span> Rooms
           </a>
         </li>
-        <li >
-          <a href="dashbordfeedbacks">
-          <span class='glyphicon glyphicon-comment'></span> Feedbacks
+        <li>
+          <a href="feedbacks-admin">
+          <span class='glyphicon glyphicon-envelope'></span> Feedbacks
           </a>
         </li>
         <li class="link-active">
-          <a href="#">
+          <a href="listusers-admin">
           <span class='glyphicon glyphicon-user'></span> Users
+          </a>
+        </li>
+          <li>
+          <a href="addadmin-admin">
+          <span class='glyphicon glyphicon-king'></span> Admins
+          </a>
+        </li>
+        <li>
+          <a href="home">
+          <span class='glyphicon glyphicon-cog'></span> Main menu
           </a>
         </li>
         </ul>
@@ -57,39 +67,61 @@
 
     <!-- Content - Start  -->
     <div id="content-wrapper">
-    
+
       <div class="container-fluid">
-        <div class="text-center" style="margin: 50px;"><h1>View all Users</h1></div>
+        <div class="text-center" style="margin: 50px;"><h1>Viwe all Users</h1></div>
         <section class="feedbacks">
           <div class="container">
             <div class="feedbacks-data">
-            
+
+              @if ($errors->any())
+                  <div class="alert alert-danger">
+                      <ul>
+                          @foreach ($errors->all() as $error)
+                              <li>{{ $error }}</li>
+                          @endforeach
+                      </ul>
+                  </div>
+                @endif
               <table class="feedbacks-table">
                   <tr>
                     <th>User ID</th>
+                    <th>Type</th>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Address </th>
                     <th>Phone </th>
                     <th>Created at </th>
                     <th>Updated at</th>
-                    
+                    <th>Delete</th>
+                    <th>Edit</th>
                   </tr>
                    @foreach($user as $us)
                   <tr>
                     <td>{{$us->id}}</td>
                     <td>{{$us->name}}</td>
-                    <td>{{$us->email}}</td>
+                    <td>
+                    @if ($us->type == 1)
+                        Admin
+                    @else
+                        Client
+                    @endif
+                    </td><td>{{$us->email}}</td>
                     <td>{{$us->address}}</td>
                     <td>{{$us->phone_num}}</td>
                     <td>{{$us->created_at}}</td>
                     <td>{{$us->updated_at}}</td>
-
+                    <td>
+                    <a href="listusers/{{$us->id}}" class="btn btn-danger">Delete</a>
+                  </td>
+                  <td>
+                    <a href="editview/{{$us->id}}" class="btn btn-success">Edit</a>
+                  </td>
                   </tr>
                 @endforeach
-              
-                 
-              
+
+
+
                 </table>
             </div>
           </div>

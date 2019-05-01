@@ -1,5 +1,3 @@
-@extends('layouts.app')
-@section('content')
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,6 +42,13 @@
                             <i class="fa fa-rss" aria-hidden="true"></i>
                         </div>
                     </div>
+                    @auth
+                        <div class="col-sm-6 col-xs-12">
+                          <div class="top-info">
+                            <p><a href="myaccount.html">{{Auth::user()->name }}</a> | <a href="{{ route('logout') }}">Log Out</a></p>
+                          </div>
+                        </div>
+                    @endauth
 
 
         </section>
@@ -70,11 +75,10 @@
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                    
-                        <li><a href="/listusers">Users</a></li>
-                        <li><a href="/dashbordfeedbacks">Feedbacks</a></li>
-                        <li><a href="/roomsadmin">Rooms</a></li>
-
+                        <li><a href="/feedbacks-admin">Feedbacks</a></li>
+                        <li><a href="/rooms-admin">Rooms</a></li>
+                        <li><a href="/addadmin-admin">Admins</a></li>
+                        <li><a href="/listusers-admin">Users</a></li>
                     </ul>
                 </div>
             </div>
@@ -99,9 +103,9 @@
             <div class="footer-contact">
               <h3>Contact Us</h3>
               <p>
-                Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. <span>Vivamus magna justo</span>, 
+                Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. <span>Vivamus magna justo</span>,
                 lacinia eget consectetur sed, convallis at tellus. <br><br>Nulla porttitor accumsan tincidunt.
-                Vivamus tortor eget <span>felis porttitor</span> volutpat. Vestibulum ante ipsum primis in 
+                Vivamus tortor eget <span>felis porttitor</span> volutpat. Vestibulum ante ipsum primis in
                 faucibus orci luctus et ultrices posuere cubilia Curae.
               </p>
               <button>Contact Us</button>
@@ -141,8 +145,7 @@
         </div>
       </div>
     </footer>
-    
+
 
 </body>
-@endsection
 </html>

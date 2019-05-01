@@ -4,7 +4,8 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-
+use DB;
+use App\Reservation;
 class Kernel extends ConsoleKernel
 {
     /**
@@ -26,6 +27,17 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+
+
+        $schedule->call(function () {
+          $finished = Reservation::select('num_rooms')->where('check_out', '<', date('Y-m-d'))->get();
+          foreach ($finished as  $f) {
+          DB::table('Rooms')->where('room_num', $f->num_rooms)->update(array('room_available'=>1));
+          }
+        })->daily();
+
+
+
     }
 
     /**

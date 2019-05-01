@@ -115,9 +115,9 @@
             <div class="footer-contact">
               <h3>Contact Us</h3>
               <p>
-                Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. <span>Vivamus magna justo</span>, 
+                Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. <span>Vivamus magna justo</span>,
                 lacinia eget consectetur sed, convallis at tellus. <br><br>Nulla porttitor accumsan tincidunt.
-                Vivamus tortor eget <span>felis porttitor</span> volutpat. Vestibulum ante ipsum primis in 
+                Vivamus tortor eget <span>felis porttitor</span> volutpat. Vestibulum ante ipsum primis in
                 faucibus orci luctus et ultrices posuere cubilia Curae.
               </p>
               <button>Contact Us</button>

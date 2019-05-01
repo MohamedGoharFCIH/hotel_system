@@ -27,7 +27,7 @@
           <div class="col-sm-6 col-xs-12">
             <div class="top-info">
 
-              <p><a href="myaccount">{{Auth::user()->name }}</a> | <a href="{{ route('logout') }}">Log Out</a></p>
+              <p><a href="myaccount.html">{{Auth::user()->name }}</a> | <a href="{{ route('logout') }}">Log Out</a></p>
 
             </div>
           </div>
@@ -66,7 +66,7 @@
             <ul class="nav navbar-nav navbar-right">
               <li><a href="index">HOME</a></li>
               <li><a href="rooms">ROOMS</a></li>
-              <li><a href="service">SERVICES</a></li>
+              <li><a href="services">SERVICES</a></li>
               <li><a href="booking">BOOKING</a></li>
               <li><a href="contact">CONTACT US</a></li>
               <li class="active"><a href="#">MY ACCOUNT</a></li>
@@ -80,28 +80,22 @@
     <section class="edit-data">
       <div class="container">
           <div class="text-center"><h1>EDIT YOUR DATA <span> !</span></h1></div>
-          <form class="edit-cts-data" method="POST">
-                <div class="col-sm-6 col-xs-12">
+          <form class="edit-cts-data" method="POST" action="edit-myaccount">
+            {{ csrf_field() }}
+                <div class="col-xs-12">
                   <div class="form-group">
                     <div class="input-group input-group-lg">
-                      <span class="input-group-addon" id="sizing-addon2">FN</span>
-                      <input type="text" class="form-control" placeholder="Fristname" aria-describedby="sizing-addon2" name="edit-fname" required="required">
+                      <span class="input-group-addon" id="sizing-addon2" style="font-size:12px">Name</span>
+                      <input type="text" class="form-control" placeholder="Name" aria-describedby="sizing-addon2" name="edit-name" required="required" value="{{Auth::user()->name}}">
                     </div>
                   </div>
                 </div>
-                <div class="col-sm-6 col-xs-12">
-                  <div class="form-group">
-                    <div class="input-group input-group-lg">
-                      <span class="input-group-addon" id="sizing-addon2">LN</span>
-                      <input type="text" class="form-control" placeholder="Lastname" aria-describedby="sizing-addon2" name="edit-lname" required="required">
-                    </div>
-                  </div>
-                </div>
+
                 <div class="col-xs-12">
                   <div class="form-group">
                     <div class="input-group input-group-lg">
                       <span class="input-group-addon" id="sizing-addon2">@</span>
-                      <input type="text" class="form-control" placeholder="Email" aria-describedby="sizing-addon2" name="edit-email" required="required">
+                      <input type="text" class="form-control" placeholder="Email" aria-describedby="sizing-addon2" name="edit-email" required="required" value="{{Auth::user()->email}}">
                     </div>
                   </div>
                 </div>
@@ -109,23 +103,16 @@
                   <div class="form-group">
                     <div class="input-group input-group-lg">
                       <span class="input-group-addon" id="sizing-addon2"><i class="fa fa-lock"></i></span>
-                      <input type="password" class="form-control" placeholder="Password" aria-describedby="sizing-addon2" name="edit-password" required="required">
+                      <input type="password" class="form-control" placeholder="Password (leave it empty if you dont want change it )" aria-describedby="sizing-addon2" name="edit-password">
                     </div>
                   </div>
                 </div>
-                <div class="col-sm-6 col-xs-12">
-                  <div class="form-group">
-                    <div class="input-group input-group-lg">
-                      <span class="input-group-addon" id="sizing-addon2"><i class="fa fa-user"></i></span>
-                      <input type="text" class="form-control" placeholder="SSN" aria-describedby="sizing-addon2" name="edit-ssn" required="required">
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-xs-12">
+
+                <div class="col-xs-12">
                   <div class="form-group">
                     <div class="input-group input-group-lg">
                       <span class="input-group-addon" id="sizing-addon2"><i class="fa fa-mobile"></i></span>
-                      <input type="text" class="form-control" placeholder="Phone Number" aria-describedby="sizing-addon2" name="edit-phone" required="required">
+                      <input type="text" class="form-control" placeholder="Phone Number" aria-describedby="sizing-addon2" name="edit-phone_num" required="required"value="{{Auth::user()->phone_num}}">
                     </div>
                   </div>
                 </div>
@@ -133,64 +120,76 @@
                   <div class="form-group">
                     <div class="input-group input-group-lg">
                       <span class="input-group-addon" id="sizing-addon2"><i class="fa fa-home"></i></span>
-                      <input type="text" class="form-control" placeholder="Address" aria-describedby="sizing-addon2" name="edit-address" required="required">
+                      <input type="text" class="form-control" placeholder="Address" aria-describedby="sizing-addon2" name="edit-address" required="required" value="{{Auth::user()->address}}">
                     </div>
                   </div>
                 </div>
               </div>
+              <div class="text-center"><input type="submit" class="save-btn" value="Save"></div>
             </form>
-            <div class="text-center"><input type="submit" class="save-btn" value="Save"></div>
+
       </div>
     </section>
     <!--end of edit data-->
 
     <!--start of history-->
+    <?php if(Auth::user()->type ==0){?>
     <section class="history">
       <div class="container">
         <div class="text-center"><h1>SEE YOUR HISTORY<span> !</span></h1></div>
         <div class="history-data">
           <table class="">
             <tr>
-              
+
             </tr>
           </table>
           <table class="history-table">
               <tr>
-                <th>Book ID</th>
+                <th>Book ID </th>
+                <th>Book Date </th>
                 <th>Check-In</th>
                 <th>Check-Out</th>
-                <th>Number of rooms</th>
+                <th>Room Num </th>
+                <th>Poeaple Num</th>
+                <th>Service </th>
+                <th>Payment </th>
+                <th>Price</th>
+                <th>Control</th>
               </tr>
-              <tr>
-                <td>$10</td>
-                <td>Buy Any Chair & Desk</td>
-                <td>GDS</td>
-                <td>N/A</td>
-              </tr>
-              <tr>
-                <td>$25</td>
-                <td>Any Chair & Desk Valued at $400+</td>
-                <td>GDS25</td>
-                <td>N/A</td>
-              </tr>
-              <tr>
-                <td>$75</td>
-                <td>Any Chair & Desk Valued at $750+</td>
-                <td>GDS75</td>
-                <td>N/A</td>
-              </tr>
-              <tr>
-                <td>$100</td>
-                <td>Any Chair & Desk Valued at $1000+</td>
-                <td>GDS100</td>
-                <td>N/A</td>
-              </tr>
+              <?php foreach ($hist as $book): ?>
+                <tr>
+                  <td>{{$book->id}}</td>
+                  <td>{{$book->created_at}}</td>
+                  <td>{{$book->check_in}}</td>
+                  <td>{{$book->check_out}}</td>
+                  <td>{{$book->num_rooms}}</td>
+                  <td>{{$book->num_ppl}}</td>
+                  <td>{{$book->service_type}}</td>
+                  <td>{{$book->payment_method}}</td>
+                  <td>{{$book->total_price}}</td>
+                  <?php
+                  if($book->check_out > date('Y-m-d') && $book->payment_method != 'canceled' ){
+                  ?>
+                  <td><a href="{{'/cancelbook/'.$book->id}}" class="btn btn-warning">Cancel</a></td>
+
+                <?php }elseif($book->payment_method == 'canceled'){?>
+
+                  <td>Canceled at {{ $book->updated_at}}</td>
+
+                <?php }else{?>
+                  <td>Finished</td>
+                <?php }?>
+                </tr>
+              <?php endforeach; ?>
+
+
             </table>
         </div>
       </div>
     </section>
+
     <!--end of history-->
-    
+<?php }?>
     <!--start of footer-->
     <footer>
       <div class="container">
@@ -199,9 +198,9 @@
             <div class="footer-contact">
               <h3>Contact Us</h3>
               <p>
-                Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. <span>Vivamus magna justo</span>, 
+                Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. <span>Vivamus magna justo</span>,
                 lacinia eget consectetur sed, convallis at tellus. <br><br>Nulla porttitor accumsan tincidunt.
-                Vivamus tortor eget <span>felis porttitor</span> volutpat. Vestibulum ante ipsum primis in 
+                Vivamus tortor eget <span>felis porttitor</span> volutpat. Vestibulum ante ipsum primis in
                 faucibus orci luctus et ultrices posuere cubilia Curae.
               </p>
               <button>Contact Us</button>
@@ -266,6 +265,7 @@
         </div>
       </div>
     </section>
+
     <!--ennd of last section-->
 
     <!--start of scroll to top button-->

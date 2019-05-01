@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Agaza - Contact Us</title>
+    <title>Agaza - Booking</title>
     <link href="{{asset("css/font-awesome.min.css")}}"  rel="stylesheet"/>
     <link href="{{asset("css/bootstrap.min.css")}}"     rel="stylesheet"/>
     <link href="{{asset("css/style.css")}}"             rel="stylesheet"/>
@@ -65,101 +65,55 @@
               <li><a href="index">Home</a></li>
               <li><a href="rooms">ROOMS</a></li>
               <li><a href="services">SERVICES</a></li>
-              <li><a href="booking">BOOKING</a></li>
-              <li class="active"><a href="#">CONTACT US</a></li>
+              <li class="active"><a href="#">BOOKING</a></li>
+              <li><a href="contact">CONTACT US</a></li>
             </ul>
           </div>
         </div>
       </nav>
     <!--end of navbar-->
 
-    <!--start of check-in-out-->
-    <div class="check-in-out" onclick="openNav()">
-      <h3>BOOK NOW</h3>
-      <i class="fa fa-address-book-o" aria-hidden="true"></i>
-    </div>
-    <div id="mySidenav" class="sidenav text-center">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      <form method="POST">
-        <p>CHECK-IN:</p>
-          <input type="date" placeholder="Check-In" name="home-checkin" required="required">
-          <p>CHECK-OUT:</p>
-          <input type="date" placeholder="Check-Out" name="home-checkout" required="required">
-          <p>NUMBER OF ADULTS:</p>
-          <select name="adults-checker" required="required">
-            <option>ADULTS</option>
-            <option value="1">1</option><option value="2">2</option><option value="3">3</option>
-            <option value="4">4</option><option value="5">5</option><option value="6">6</option>
-            <option value="7">7</option><option value="8">8</option><option value="9">9</option>
-            <option value="10">10</option><option value="11">11</option><option value="12">12</option>
-          </select>
-          <p>NUMBER OF ROOMS:</p>
-          <select name="rooms-checker" required="required">
-            <option>ROOMS</option>
-            <option value="1">1</option><option value="2">2</option><option value="3">3</option>
-            <option value="4">4</option>
-          </select>
-          <p>From <span>USD110</span> /night</p>
-          <input type="submit" class="btn" value="CHECK YOUR BOOK">
-      </form>
-    </div>
-    <!--end of check-in-out-->
-
-    <!--start of contact us body-->
-    <section class="contact-us">
-      <div class="container">
-        <div class="text-center">
-          <h1>GET IN TOUGHT<span> !</span></h1>
-          <h3>Send us your inquires and feedbacks!</h3>
-        </div>
-        <div class="contact-form-holder">
-
-          @if ($errors->any())
-              <div class="alert alert-danger">
-                  <ul>
-                      @foreach ($errors->all() as $error)
-                          <li>{{ $error }}</li>
-                      @endforeach
-                  </ul>
-              </div>
-            @endif
-
-            @if (\Session::get('success'))
-                <div class="alert alert-success">
-                    <p>{{ \Session::get('success') }}</p>
-                </div>
-            @endif
-
-          <form id="contactus-form" action="addfeedback" method="POST">
-            {{csrf_field()}}
-            <div class="row">
-              <div class="col-xs-12">
-              </div>
-              <div class="col-sm-6 col-xs-12">
-                <div class="input-group input-group-lg">
-                  <span class="input-group-addon" id="basic-addon1">?</span>
-                            <input type="text" class="form-control" name="contact-subject" placeholder="Subject" aria-describedby="basic-addon1" required="required" value="{{Request::old('contact-subject')}}">
-                </div>
-              </div>
-              <div class="col-xs-12">
-                <div class="form-group">
-                  <!-- <div class="form-group{{$errors->has('name') ? 'has-error' : '' }}"> -->
-                  <textarea class="form-control" name="contact-message" rows="5" placeholder="Message" required="required" value="{{Request::old('contact-message')}}"></textarea>
-                <!-- </div> -->
-                </div>
-              </div>
-              <div class="col-xs-12">
-                <div class="form-group">
-                  <input type="submit" name ="contact-submit" value="Send" class="btn">
-                </div>
-              </div>
-            </div>
-          </form>
-
-        </div>
+    <!--start of booking-body-->
+      <div class="booking-head text-center">
+        <h1>BOOK NOW<span> !</span></h1>
+        <h3>Book now to get your room fastly</h3>
       </div>
-    </section>
-    <!--end of contact us body-->
+      <section class="booking">
+        <div class="container">
+          <div class="booking-data">
+            <table class="feedbacks-table">
+                <tr>
+                  <th>User ID</th>
+                  <th>Number of people</th>
+                  <th>Room Number</th>
+                  <th>Service type </th>
+                  <th>payment method </th>
+                  <th>check in date</th>
+                  <th>check out date</th>
+                  <th>Total Price</th>
+                  <th>Booking date</th>
+
+                </tr>
+                <tr>
+                  <td>{{$reservation->user_id}}</td>
+                  <td>{{$reservation->num_ppl}}</td>
+                  <td>{{$reservation->num_rooms}}</td>
+                  <td>{{$reservation->service_type}}</td>
+                  <td>{{$reservation->payment_method}}</td>
+                  <td>{{$reservation->check_in}}</td>
+                  <td>{{$reservation->check_out}}</td>
+                  <td>{{$reservation->total_price}}$</td>
+                  <td>{{$reservation->updated_at}}</td>
+
+                </tr>
+
+
+
+              </table>
+          </div>
+        </div>
+      </section>
+    <!--end of booking-body-->
 
     <!--start of footer-->
     <footer>

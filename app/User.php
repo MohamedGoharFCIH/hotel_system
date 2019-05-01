@@ -24,6 +24,12 @@ class User extends Authenticatable
      *
      * @var array
      */
+     protected $rules = [
+    'email' => 'sometimes|required|email|unique:users',
+    'name' => 'require|max:10|min:5',
+    'address' =>'require|min:4'|'max:255',
+    'phone_num' =>'require|min:11|unique:users',
+    ];
     protected $hidden = [
         'password', 'remember_token',
     ];

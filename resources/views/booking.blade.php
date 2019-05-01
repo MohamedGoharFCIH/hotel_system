@@ -72,7 +72,7 @@
         </div>
       </nav>
     <!--end of navbar-->
-    
+
     <!--start of booking-body-->
       <div class="booking-head text-center">
         <h1>BOOK NOW<span> !</span></h1>
@@ -81,7 +81,8 @@
       <section class="booking">
         <div class="container">
           <div class="booking-data">
-            <form class="booking-form" method="POST">
+            <form class="booking-form" method="POST" action="/reserveroom">
+              {{csrf_field()}}
               <div class="row">
                 <div class="col-sm-6 col-xs-12">
                   <div class="input-group">
@@ -92,48 +93,39 @@
                 <div class="col-sm-6 col-xs-12">
                   <div class="input-group">
                     <p>CHECK-OUT:</p>
-                    <input type="date" name="book-checkin" required="required">
+                    <input type="date" name="book-checkout" required="required">
                   </div>
                 </div>
                 <div class="col-sm-6 col-xs-12">
                   <p>NUMBER OF ADULTS:</p>
                   <select name="book-adults-checker" required="required">
-                    <option>ADULTS</option>
+
                     <option value="1">1</option><option value="2">2</option><option value="3">3</option>
-                    <option value="4">4</option><option value="5">5</option><option value="6">6</option>
-                    <option value="7">7</option><option value="8">8</option><option value="9">9</option>
-                    <option value="10">10</option><option value="11">11</option><option value="12">12</option>
+
                   </select>
                 </div>
-                <div class="col-sm-6 col-xs-12">
-                  <p>NUMBER OF ROOMS:</p>
-                  <select name="book-rooms-checker" required="required">
-                    <option>ROOMS</option>
-                    <option value="1">1</option><option value="2">2</option><option value="3">3</option>
-                    <option value="4">4</option>
-                  </select>
-                  <div class="typeof-rooms">
-                    <h5>Single Room</h5>
-                    <input type="number" name="single-number" required="required">
-                    <h5>Double Room</h5>
-                    <input type="number" name="Double-number" required="required">
-                    <h5>Triple Room</h5>
-                    <input type="number" name="Triple-number" required="required">
-                  </div>
-                </div>
+
                 <div class="col-sm-6 col-xs-12">
                   <p>SERVICES:</p>
-                  <label class="radio-inline"><input type="radio" name="serve-full">Full Board</label>
-                  <label class="radio-inline"><input type="radio" name="serve-full">Half Board</label>
-                  <label class="radio-inline"><input type="radio" name="serve-full">All-Inclusive</label>
+                  <select name="serve-full" required="required">
+
+                    <option value="Full Board">Full Board</option>
+                    <option value="Half Board">Half Board</option>
+                    <option value="All-Inclusive">All-Inclusive</option>
+
+                  </select>
                 </div>
                 <div class="col-sm-6 col-xs-12">
-                  <p>PAYMENT METHOD:</p>
-                  <label class="radio-inline"><input type="radio" name="pay-arrive">On Arrival</label>
-                  <label class="radio-inline"><input type="radio" name="pay-arrive">Online</label>
-                  <h5>Card Number:</h5>
-                  <input type="text" name="pay-card" required="required">
-                 </div>
+                  <p>PAYMENT METHOD::</p>
+                  <select name="payment_method" required="required">
+
+                    <option value="On Arrival">On Arrival</option>
+                    <option value="Online">Online</option>
+
+
+                  </select>
+                </div>
+
                  <div class="text-center"><input type="submit" value="Book Now"></div>
               </div>
             </form>
@@ -150,9 +142,9 @@
             <div class="footer-contact">
               <h3>Contact Us</h3>
               <p>
-                Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. <span>Vivamus magna justo</span>, 
+                Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. <span>Vivamus magna justo</span>,
                 lacinia eget consectetur sed, convallis at tellus. <br><br>Nulla porttitor accumsan tincidunt.
-                Vivamus tortor eget <span>felis porttitor</span> volutpat. Vestibulum ante ipsum primis in 
+                Vivamus tortor eget <span>felis porttitor</span> volutpat. Vestibulum ante ipsum primis in
                 faucibus orci luctus et ultrices posuere cubilia Curae.
               </p>
               <button>Contact Us</button>
