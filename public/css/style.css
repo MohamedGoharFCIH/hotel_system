@@ -1136,16 +1136,24 @@ table.feedbacks-table tbody tr:hover {
 table.feedbacks-table tbody td:first-child {
   font-size:21px;
 }
-.rooms-buttons{
+.rooms-buttons {
   margin: 20px 0px;
 }
 .rooms-buttons button{
-  background-color: #f6d014;
   color: #333;
   width: 50px;
   height: 50px;
   text-align: center;
   margin: 0px 10px;
   border: none;
+}
+.room-closed{
+  background-color: red;
+}
+.room-available button{
+  background-color: lime;
+}
+.room {
+  background-color: #f6d014;
 }
 /*------------------end of  dashbord-home page------------------*/

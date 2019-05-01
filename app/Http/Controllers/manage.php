@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -12,7 +13,7 @@ use App\Room;
 use App\Bill;
 use DB;
 use Auth;
-
+use Validator;
 class manage extends Controller
 {
         public function AddFeedback(Request $request)
@@ -20,6 +21,11 @@ class manage extends Controller
           if(Auth::user()->type==0)
               return redirect('index');
           if($request->isMethod('post')){
+
+            $this->validate($request, [
+              'contact-subject' => 'required|max:10',
+              'contact-message' => 'required|min:25',
+        ]);
             $feedback = new Feedback();
             $feedback->Subject = $request->input('contact-subject');
             $feedback->message = $request->input('contact-message');
@@ -30,6 +36,7 @@ class manage extends Controller
           }
           return view('contact');
         }
+
 
 
         public function AddAdmin(Request $request)
@@ -60,9 +67,11 @@ class manage extends Controller
           if(Auth::user()->type==0)
               return redirect('index');
           $user = User::select('*')->get();
-
           return view('dashbord-listusers', compact('user'));
         }
+        
+        
+       
 
 
         public function ReserveRoom(Request $request)
@@ -158,8 +167,6 @@ class manage extends Controller
           $bill->user_id = Auth::User()->id;
           $bill->bill_date = date('Y-m-d');
           $bill->save();
-
-
         }
         public function read($id)
           {
@@ -176,13 +183,19 @@ class manage extends Controller
             if(Auth::user()->type==0)
                 return redirect('index');
             if ($request->isMethod('post')) {
+              $this->validate($request, [
+                  'name' => 'required|string|min:5|max:15',
+                  'email' => 'required|string|email|max:255',
+                  'phone_num' =>'required|string|max:11|unique:users',
+                  'address' =>'required|string|min:5',
+              ]);
               $user=User::find($id);
               $user->name=$request->input('name');
               $user->email=$request->input('email');
               $user->address=$request->input('address');
               $user->phone_num=$request->input('phone_num');
               $user->save();
-                return redirect("listusers-admin");
+              return redirect("listusers-admin");
             }else {
              $user=User::find($id);
               $arr = array('user' => $user);
@@ -190,6 +203,7 @@ class manage extends Controller
 
           }
         }
+        
         public function editAccount(Request $request)
         {
           $id = Auth::user()->id;
@@ -244,4 +258,18 @@ class manage extends Controller
 
 
 
+        public function ManageRoom($id,$option)
+        {
+                  $room = Room::find($id);
+                  $room->room_available = $option;
+                  $room->save();
+                  return $this->listrooms();
+        }
+         public function listrooms()
+        {
+        if(Auth::user()->type==0)
+            return redirect('index');
+          $room = Room::select('*')->get();
+          return view('dashbord-rooms', compact('room'));
+        }
 }

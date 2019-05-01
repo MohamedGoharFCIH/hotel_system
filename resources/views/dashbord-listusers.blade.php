@@ -39,13 +39,13 @@
           <span class='glyphicon glyphicon-home'></span> Rooms
           </a>
         </li>
-        <li >
+        <li>
           <a href="feedbacks-admin">
           <span class='glyphicon glyphicon-envelope'></span> Feedbacks
           </a>
         </li>
         <li class="link-active">
-          <a href="#">
+          <a href="listusers-admin">
           <span class='glyphicon glyphicon-user'></span> Users
           </a>
         </li>
@@ -69,11 +69,20 @@
     <div id="content-wrapper">
 
       <div class="container-fluid">
-        <div class="text-center" style="margin: 50px;"><h1>View all Users</h1></div>
+        <div class="text-center" style="margin: 50px;"><h1>Viwe all Users</h1></div>
         <section class="feedbacks">
           <div class="container">
             <div class="feedbacks-data">
 
+              @if ($errors->any())
+                  <div class="alert alert-danger">
+                      <ul>
+                          @foreach ($errors->all() as $error)
+                              <li>{{ $error }}</li>
+                          @endforeach
+                      </ul>
+                  </div>
+                @endif
               <table class="feedbacks-table">
                   <tr>
                     <th>User ID</th>

@@ -72,39 +72,74 @@
         <div class="text-center" style="margin: 50px;"><h1>Edit User</h1></div>
         <section class="feedbacks">
           <div class="container">
-            <div class="feedbacks-data">
-                <table class="feedbacks-table">
+            <div class="row">
+              <div class="col-md-10 col-md-offset-1">
+                  <div class="panel panel-default">
+                      <div class="panel-heading">Edit  Results</div>
+          
+          
+                      @if ($errors->any())
+                          <div class="alert alert-danger">
+                              <ul>
+                                  @foreach ($errors->all() as $error)
+                                      <li>{{ $error }}</li>
+                                  @endforeach
+                              </ul>
+                          </div>
+                        @endif
+          
+                        @if (\Session::get('success'))
+                            <div class="alert alert-success">
+                                <p>{{ \Session::get('success') }}</p>
+                            </div>
+                        @endif
+          
+          
+                      <div class="panel-body">
+                         <form class="form-horizontal" role="form" action="/editview/{{$user->id}}" method="post">
+                                {{csrf_field ()}}
+                          <table class="table table-striped">
+                                  <thead>
+                                      <tr>
+                                          <th>name</th>
+                                          <th>Email</th>
+                                          <th>Address</th>
+                                          <th>Phone_num</th>
+          
+                                      </tr>
+                                  </thead>
+                                  <tbody class="resultbody">
+                                      <tr>
+          
+                                          <td>
+                                          <div class="form-group{{$errors->has('name') ? 'has-error' : '' }}">
+                                                <input type="text" class="name form-control" name="name" value="{{$user->name}}">
+                                        </div>
+                                          </td>
+                                          <td>
+                                              <input type="text" class="fname form-control" name="email" value="{{$user->email }}">
+                                          </td>
+                                          <td>
+                                              <input type="text" class="rollno form-control" name="address" value="{{$user->address}}">
+                                          </td>
+                                          <td>
+                                              <input type="text" class="obtainedmarks form-control" name="phone_num" value="{{$user->phone_num}}" value="{{Request::old('phone_num')}}">
+          
+                                          </td>
+                                      </tr>
+          
+                                  </tbody>
+                              </table>
+                              <center>
+                              <input type="submit" class="btn btn-lg btn-default" value="Save"></center>
+                              </form>
+                      </div>
+                  </div>
+              </div>
+          
+          </div>
 
-                  <tr>
 
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Address </th>
-                    <th>Phone </th>
-
-                  </tr>
-                     <tr>
-                      <form action="/editview/{{$user->id}}" method="post">
-                        {{csrf_field ()}}
-                    <td>    <input type="text" name="name" placeholder="Enter name" value="{{$user->name}}"> </td>
-                        </br>
-                    <td>      <input type="text" name="email" placeholder="Enter email" value="{{$user->email}}">   </td>
-                        </br>
-                      <td>
-                           <input type="text" name="address" placeholder="Enter address" value="{{$user->address}}">
-                        </td>
-                        </br>
-                          <td><input type="text" name="phone_num" placeholder="Enter phone_num"value="{{$user->phone_num}}">  </td>
-                        </br>
-                    <td>  <button type="submit" class="btn btn-primary">
-                          {{ __('Save') }}
-                      </button>
-
-                      </form>
-
-                    </tr>
-                </table>
-            </div>
           </div>
         </section>
       </div>

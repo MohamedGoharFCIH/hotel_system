@@ -98,15 +98,18 @@ Route::get('/listusers-admin', 'manage@listusers')->middleware('auth');
 // end admin list users
 
 // start feedbacks part
-Route::get('addfeedback', 'manage@AddFeedback')->middleware('auth');;
-Route::post('addfeedback', 'manage@AddFeedback')->middleware('auth');;
-Route::get('feedbacks-admin', 'manage@dashbordfeedbacks')->middleware('auth');;
+Route::get('addfeedback', 'manage@AddFeedback')->middleware('auth');
+Route::post('addfeedback', 'manage@AddFeedback')->middleware('auth');
+Route::get('feedbacks-admin', 'manage@dashbordfeedbacks')->middleware('auth');
 // end feedbacks part
+// start Validate
 
 // eidt user
-Route::get('editview/{id}', "manage@Edit")->middleware('auth');;
-Route::post('editview/{id}', "manage@Edit")->middleware('auth');;
+Route::get('editview/{id}', "manage@Edit")->middleware('auth');
+Route::post('editview/{id}', "manage@Edit")->middleware('auth');
+// end Validate
 
+// Akher 7agaa
 
 // delete users
 
@@ -117,19 +120,18 @@ Route::get('listusers-admin/{id}', function($id)
     $user=User::find($id);
     $user->delete();
     return redirect('listusers');
-})->middleware('auth');;
+})->middleware('auth');
 // read message
-Route::get('/readMessage/{id}', 'manage@read')->middleware('auth');;
+Route::get('/readMessage/{id}', 'manage@read')->middleware('auth');
 
 
-Route::post('reserveroom', 'manage@ReserveRoom')->middleware('auth');;
+Route::post('reserveroom', 'manage@ReserveRoom')->middleware('auth');
 
 // start admin view rooms
-Route::get('/rooms-admin', function () {
-  if(Auth::user()->type==0)
-      return redirect('index');
-    return view('dashbord-rooms');
-})->middleware('auth');;
+Route::get('/rooms-admin', 'manage@listrooms')->middleware('auth');
+
+Route::get('manage-room/{id}/{option}', 'manage@ManageRoom');
+
 // end admin view rooms
 
 // start admin add admin
@@ -137,8 +139,8 @@ Route::get('/addadmin-admin', function () {
   if(Auth::user()->type==0)
       return redirect('index');
     return view('dashbord-admin');
-})->middleware('auth');;
-Route::post('addadmin', 'manage@AddAdmin')->middleware('auth');;
+})->middleware('auth');
+Route::post('addadmin', 'manage@AddAdmin')->middleware('auth');
 // end admin add admin
 
 
