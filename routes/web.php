@@ -6,13 +6,15 @@
 |
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| contains the "web" middleware group. Now create so0mething great!
 |
 */
+
 use App\User;
-Route::get('/', function () {
-    return view('welcome');
-});
+
+//start guest routes
+
+Route::get('/', 'UserController@welcomePage');
 
 
 Auth::routes();
@@ -20,141 +22,71 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-// start admin middleware
+Route::get('/index', 'UserController@welcomePage');
 
-Route::get('/admin', 'HomeController@admin')->middleware('admin');
+Route::get('/login.html', 'Auth\LoginController@loginPage');
 
-//end admin middleware
-
-
-// start page routing
-Route::get('/index', function () {
-    return view('welcome');
-});
-
-Route::get('/admin', function () {
-    if (Auth::guest())
-        return redirect('login');
-    elseif(Auth::user()->type==0)
-        return redirect('index');
-    return view('admin');
-});
-
-Route::get('/rooms', function () {
-    if (Auth::guest())
-        return redirect('login');
-      elseif(Auth::user()->type==1)
-        return redirect('home');
-    return view('rooms');
-});
-
-Route::get('/services', function () {
-    if (Auth::guest())
-        return redirect('login');
-    elseif(Auth::user()->type==1)
-          return redirect('home');
-    return view('services');
-});
-
-Route::get('/booking', function () {
-    if (Auth::guest())
-        return redirect('login');
-    elseif(Auth::user()->type==1)
-        return redirect('home');
-    return view('booking');
-});
-
-Route::get('/contact', function () {
-    if (Auth::guest())
-        return redirect('login');
-    elseif(Auth::user()->type==1)
-        return redirect('home');
-    return view('contact');
-});
+Route::get('/sign-up', 'Auth\RegisterController@RegisterPage');
 
 
+//end guest routes
 
-Route::get('/login.html', function () {
-    return view('auth/login');
-});
 
-Route::get('/sign-up', function () {
-    return view('auth/register');
-});
-/*
-Route::get('/bill', function () {
+//start client routes
 
-    return view('bill');
-});
-*/
+Route::get('/rooms', 'UserController@roomPage');
+
+Route::get('/services', 'UserController@servicesPage');
 
 
 Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
 
-// end page routing
+Route::get('/myaccount.html', 'UserController@fetchAccount')->middleware('auth');
 
-// start admin list usr
-Route::get('/listusers-admin', 'manage@listusers')->middleware('auth');
-// end admin list users
+Route::post('edit-myaccount', 'UserController@editAccount')->middleware('auth');
 
-// start feedbacks part
-Route::get('addfeedback', 'manage@AddFeedback')->middleware('auth');
-Route::post('addfeedback', 'manage@AddFeedback')->middleware('auth');
-Route::get('feedbacks-admin', 'manage@dashbordfeedbacks')->middleware('auth');
-// end feedbacks part
-// start Validate
+Route::get('/listusers-admin', 'UserController@listusers')->middleware('auth');
+
 
 // eidt user
-Route::get('editview/{id}', "manage@Edit")->middleware('auth');
-Route::post('editview/{id}', "manage@Edit")->middleware('auth');
-// end Validate
-
-// Akher 7agaa
+Route::get('editview/{id}', "UserController@Edit")->middleware('auth');
+Route::post('editview/{id}', "UserController@Edit")->middleware('auth');
 
 // delete users
 
-Route::get('listusers-admin/{id}', function($id)
-{
-   if(Auth::user()->type==0)
-      return redirect('index');
-    $user=User::find($id);
-    $user->delete();
-    return redirect('listusers');
-})->middleware('auth');
-// read message
-Route::get('/readMessage/{id}', 'manage@read')->middleware('auth');
+Route::get('listusers/{id}','UserController@deleteUser')->middleware('auth');
+
+Route::get('/addadmin-admin','UserController@listAdmins')->middleware('auth');
+
+Route::post('addadmin', 'UserController@AddAdmin')->middleware('auth');
+
+Route::get('/contact','userController@contactPage');
+// end user routing
 
 
-Route::post('reserveroom', 'manage@ReserveRoom')->middleware('auth');
-
-// start admin view rooms
-Route::get('/rooms-admin', 'manage@listrooms')->middleware('auth');
-
-Route::get('manage-room/{id}/{option}', 'manage@ManageRoom');
-
-// end admin view rooms
-
-// start admin add admin
-Route::get('/addadmin-admin', function () {
-  if(Auth::user()->type==0)
-      return redirect('index');
-    return view('dashbord-admin');
-})->middleware('auth');
-Route::post('addadmin', 'manage@AddAdmin')->middleware('auth');
-// end admin add admin
 
 
-// start myaccount
+// start rooms and reservation Routes
 
-/*
-Route::get('/myaccount.html', function(){
-  return view('myaccount');
+Route::post('reserveroom', 'ReservationController@ReserveRoom')->middleware('auth');
 
-});
-*/
-Route::get('/myaccount.html', 'manage@fetchAccount')->middleware('auth');;
+Route::get('/rooms-admin', 'RoomController@listrooms')->middleware('auth');
+
+Route::get('manage-room/{id}/{option}', 'RoomController@ManageRoom');
+
+Route::get('/cancelbook/{id}', 'ReservationController@cancelBook')->middleware('auth');
+
+Route::get('/booking', 'RoomController@booking');
+
+// end rooms and reservation Routes
 
 
-Route::post('edit-myaccount', 'manage@editAccount')->middleware('auth');;
-Route::get('/cancelbook/{id}', 'manage@cancelBook')->middleware('auth');;
-//end my account
+// start feedbacks Routes
+
+Route::get('addfeedback', 'FeedbackController@AddFeedback')->middleware('auth');
+Route::post('addfeedback', 'FeedbackController@AddFeedback')->middleware('auth');
+Route::get('feedbacks-admin', 'FeedbackController@dashbordfeedbacks')->middleware('auth');
+
+Route::get('/readMessage/{id}', 'FeedbackController@read')->middleware('auth');
+
+// end feedbacks routes

@@ -77,8 +77,9 @@
                     <th>Room's Number</th>
                     <th>Room's Capacity</th>
                     <th>Availablity</th>
-                    <th>Free</th>
+
                     <th>Set under maintainance</th>
+                    <th>Free</th>
                   </tr>
                    @foreach($room as $r)
                   <tr>
@@ -92,20 +93,21 @@
                     @else
                         Occupied
                     @endif
+
                     <td>
-                    <a href="manage-room/{{$r->id}}/{{0}}" class="btn btn-danger">Set under maintainance</a>
-                  </td>
+                      <a href="manage-room/{{$r->id}}/{{0}}" class="btn btn-danger">Set under maintainance</a>
+                    </td>
                   <td>
                     <a href="manage-room/{{$r->id}}/{{1}}" class="btn btn-success">Free</a>
                   </td>
-                  
+
                   </tr>
                 @endforeach
                 </table>
-          
+
       </div>
     </div>
-    
+
 
 
     <script src="{{URL::asset('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')}}"></script>

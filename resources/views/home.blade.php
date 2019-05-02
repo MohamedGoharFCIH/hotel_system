@@ -22,8 +22,9 @@
 
 
               <div class="panel-body">
-
-               <a href="/admin">Admin</a>
+                  <br>
+                  <br>
+                  <br>
 
               </div>
 

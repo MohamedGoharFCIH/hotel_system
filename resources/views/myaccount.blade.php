@@ -168,7 +168,7 @@
                   <td>{{$book->payment_method}}</td>
                   <td>{{$book->total_price}}</td>
                   <?php
-                  if($book->check_out > date('Y-m-d') && $book->payment_method != 'canceled' ){
+                  if($book->check_out > date('Y-m-d') && ($book->payment_method != 'canceled'&& $book->payment_method != 'canceled by admin')){
                   ?>
                   <td><a href="{{'/cancelbook/'.$book->id}}" class="btn btn-warning">Cancel</a></td>
 
@@ -176,9 +176,11 @@
 
                   <td>Canceled at {{ $book->updated_at}}</td>
 
+                <?php }elseif($book->payment_method == 'canceled by admin'){?>
+                  <td>Canceld by admin at {{ $book->updated_at}}</td>
                 <?php }else{?>
-                  <td>Finished</td>
-                <?php }?>
+                <td>Finished</td>
+              <?php }?>
                 </tr>
               <?php endforeach; ?>
 

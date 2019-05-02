@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -25,7 +25,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    
+
     protected function redirectTo()
     {
         if (auth()->user()->type == 1) {
@@ -45,4 +45,13 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    public function loginPage(Request $request) {
+         if (Auth::guest())
+              return view('auth/login');
+         else
+              return redirect('index');
+    }
+
+
 }
